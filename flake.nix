@@ -9,23 +9,21 @@
 
   outputs = { self, nixpkgs, home-manager, ... }:
   let
+    hostname = "nicolas";
     username = "acerola";
     system = "x86_64-linux";
 
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations = {
-      nicolas = lib.nixosSystem {
-        inherit system;
-        modules = [ ./configuration.nix ];
-      };
+    nixosConfigurations.${hostname} = lib.nixosSystem {
+      inherit system;
+      modules = [ ./configuration.nix ];
     };
+
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        defaultPackage.${system} = home-manager.defaultPackage.${system};
-        modules = [ ./home.nix ];
-      };
+      inherit pkgs;
+      modules = [ ./home.nix ];
     };
   };
 }

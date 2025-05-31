@@ -12,4 +12,4 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 #sudo chown -R 1000:users ~/.cache/nix;
 
 # Install and build home-manager configuration
-home-manager switch --flake $SCRIPT_DIR#user;
+home-manager switch --flake $SCRIPT_DIR;
