@@ -3,6 +3,7 @@ let
   myAliases = {
     dwm-edit = "$EDITOR $HOME/suckless/dwm/config.h";
     l = "lazygit";
+    v = "nvim";
     svim = "sudo vim -u $HOME/.vimrc";
     make = "make -j$(nproc)";
     c = "clear";
