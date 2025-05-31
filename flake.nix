@@ -20,7 +20,7 @@
       };
     };
     homeConfigurations = {
-      acerola = home-manager.lib.homeManagerConfigurations {
+      acerola = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
       };
