@@ -11,7 +11,7 @@
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-    pkgs = nixpkgs.legacyPackges.${system};
+    pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
       inherit system;
