@@ -29,8 +29,8 @@
       fontPkg = pkgs.nerd-fonts.caskaydia-cove;
 
       terminal = "alacritty";  # Stored in: ./user/app/terminal
-      editor = "nvim";
-      shell = "fish";
+      editor = "nvim";  # Stored in: ./user/app/editor
+      shell = "fish";  # Still not automatically
     };
 
     lib = nixpkgs.lib;

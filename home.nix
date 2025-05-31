@@ -11,7 +11,7 @@
 
   imports = [
     ./user/shell/sh.nix
-    # (./user/app/terminal/alacritty.nix)
+    # ./user/app/terminal/alacritty.nix
     (./. + "./user/app/terminal"+("/"+userSettings.terminal)+".nix")
   ];
 

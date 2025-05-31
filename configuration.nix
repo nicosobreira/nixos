@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostname = systemSettings.hostname; # Define your hostname.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -84,9 +84,9 @@
 
   programs.firefox.enable = true;
 
-  environment.shells = with pkgs; [ userSettings.shell ];
-  users.defaultUserShell = pkgs.${userSettings.shell};
-  programs.${userSettings.shell}.enable = true;
+  environment.shells = with pkgs; [ fish ];
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
