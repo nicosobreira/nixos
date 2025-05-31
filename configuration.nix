@@ -7,7 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./system/hardware-configuration.nix
+      ./system/gpu/${systemSettings.gpuType}.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -36,6 +37,11 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+  };
 
   console = {
     # font = "Lat2-Terminus16";
@@ -98,10 +104,6 @@
     stow
     xclip
   ];
-
-  xdg.portal = {
-    enable = true
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
