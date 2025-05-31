@@ -14,6 +14,7 @@
     # ./user/app/terminal/alacritty.nix
     ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/nvim/nvim.nix
+    ./user/app/tmux/tmux.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
