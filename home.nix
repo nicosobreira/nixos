@@ -38,7 +38,7 @@
 
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
-    # import = [ .user/apps/alacritty/themes/catppuccin_mocha.toml ];
+    import = [ .user/apps/alacritty/themes/catppuccin_mocha.toml ];
     font.normal = {
       family = "Caskydia Cove Nerd Font";
       style = "Regular";
