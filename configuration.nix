@@ -5,11 +5,10 @@
 { config, lib, pkgs, systemSettings, userSettings, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./system/hardware-configuration.nix
-      ./system/gpu/${systemSettings.gpuType}.nix
-    ];
+  imports = [
+    ./system/hardware-configuration.nix
+    ./system/gpu/${systemSettings.gpuType}.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -103,6 +102,7 @@
     git
     stow
     xclip
+    lshw
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

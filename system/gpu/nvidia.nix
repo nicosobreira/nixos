@@ -1,14 +1,25 @@
-{ pkgs, systemSettings, userSettings, ...}:
+# Thanks for this guide!
+# https://nixos.wiki/wiki/Nvidia
+
+{ config, lib, pkgs, systemSettings, userSettings, ...}:
 
 {
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "nvidia-x11"
+    "nvidia-settings"
+    "nvidia-persistenced"
+  ];
+
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ userSettings.gpuType ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-    sync.enable = true;
+    prime = {
+      sync.enable = true;
 
-    intelBusId = "PCI:0:2:0";
-    intelBusId = "PCI:1:0:0";
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
 
     # Modesetting is required.
     modesetting.enable = true;
