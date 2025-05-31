@@ -9,21 +9,49 @@
 
   outputs = { self, nixpkgs, home-manager, ... }:
   let
-    hostname = "nicolas";
-    username = "acerola";
-    system = "x86_64-linux";
-
-    lib = nixpkgs.lib;
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    nixosConfigurations.${hostname} = lib.nixosSystem {
-      inherit system;
-      modules = [ ./configuration.nix ];
+    systemSettings = {
+      system = "x86_64-linux";
+      hostname = "nicolas";
+      timeZone = "America/Sao_Paulo";
+      language = "en_US.UTF-8";
+      locale = "pt_BR.UTF-8";
+      bootMode = "uefi";
+      bootMoundPath = "/boot";
+      grupDevide = "";
+      gpuType = "nvidia";
     };
 
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+    userSettings = {
+      username = "acerola";
+      email = "nicolau.sobreira@gmail.com";
+
+      font = "CaskaydiaCove Nerd Font";
+      fontPkg = pkgs.nerd-fonts.caskaydia-cove;
+
+      terminal = "alacritty";  # Stored in: ./user/app/terminal
+      editor = "nvim";
+      shell = "fish";
+    };
+
+    lib = nixpkgs.lib;
+    pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+  in {
+    nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
+      system = systemSettings.system;
+      modules = [ ./configuration.nix ];
+      specialArgs = {
+        inherit systemSettings;
+        inherit userSettings;
+      };
+    };
+
+    homeConfigurations.${userSettings.username} = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [ ./home.nix ];
+      extraSpecialArgs = {
+        inherit systemSettings;
+        inherit userSettings;
+      };
     };
   };
 }

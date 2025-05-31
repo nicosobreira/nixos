@@ -1,17 +1,18 @@
-{ config, pkgs, ... }:
+{ config, pkgs, systemSettings, userSettings, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "acerola";
-  home.homeDirectory = "/home/acerola";
+  home.username = userSettings.username;
+  home.homeDirectory = "/home/"+userSettings.username;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   imports = [
     ./user/shell/sh.nix
-    ./user/app/terminal/alacritty.nix
+    # (./user/app/terminal/alacritty.nix)
+    (./. + "./user/app/terminal"+("/"+userSettings.terminal)+".nix")
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -28,7 +29,7 @@
     gcc_multi
 
     # # Fonts
-    nerd-fonts.caskaydia-cove
+    userSettings.fontPkg
     nerd-fonts.ubuntu-sans
     nerd-fonts.arimo
 
@@ -47,7 +48,7 @@
   ];
 
   fonts.fontconfig.defaultFonts = {
-    monospace = [ "CaskaydiaCove Nerd Font" ];
+    monospace = [ userSettings.font ];
     sansSerif = [ "UbuntuSans Nerd Font" ];
     serif = [ "Arimo Nerd Font" ];
   };
@@ -84,7 +85,7 @@
   #  /etc/profiles/per-user/acerola/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = userSettings.editor;
   };
 
   # This value determines the Home Manager release that your configuration is
