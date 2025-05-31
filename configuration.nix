@@ -30,7 +30,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     # font = "Lat2-Terminus16";
-    # keyMap = "br";
     useXkbConfig = true; # use xkb.options in tty.
   };
 
@@ -84,14 +83,8 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    neovim
-    alacritty
     git
     stow
-
-    gnumake
-    gcc_multi
-
     xclip
     # xorg.libXft
     # xorg.libX11

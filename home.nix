@@ -15,18 +15,28 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs; [
+    # # Development
+    neovim
+    alacritty
+    tmux
+    yazi
+    lazygit
+    nerd-fonts.caskaydia-cove
+
+    gnumake
+    gcc_multi
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" "CascadiaCode" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -68,9 +78,6 @@
   #  /etc/profiles/per-user/acerola/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
