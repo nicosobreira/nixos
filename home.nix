@@ -8,7 +8,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  services.psd.useBackup = true;
+  home-manager.backupFileExtension = true;
 
   imports = [
     ./user/shell/sh.nix
