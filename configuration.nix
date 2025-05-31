@@ -52,8 +52,6 @@
     enable = true;
     autoRepeatDelay = 190;
     autoRepeatInterval = 50;
-
-    windowManager.awesome.enable = true;
   };
 
   # Configure keymap in X11

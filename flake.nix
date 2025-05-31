@@ -33,8 +33,9 @@
 
       terminal = "alacritty";  # Stored in: ./user/app/terminal
       editor = "nvim";  # Stored in: ./user/app/editor
-      shell = "fish";  # Still not automatically
-      browser = "firefox";  # Still not automatically
+      shell = "fish";  # Stored in: ./user/shell/sh.nix
+      browser = "firefox";
+      wm = "awesome";  # Stored in: ./user/wm/${your-wm-name}/${your-wm-name}.nix
     };
 
     lib = nixpkgs.lib;

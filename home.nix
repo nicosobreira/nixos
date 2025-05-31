@@ -15,6 +15,7 @@
     ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/nvim/nvim.nix
     ./user/app/tmux/tmux.nix
+    ./user/wm/awesome/awesome.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -50,8 +51,10 @@
 
   fonts.fontconfig.defaultFonts = {
     monospace = [ userSettings.font ];
-    sansSerif = [ "UbuntuSans Nerd Font" ];
-    serif = [ "Arimo Nerd Font" ];
+    sansSerif = [ userSettings.font ];
+    serif = [ userSettings.font ];
+    # sansSerif = [ "UbuntuSans Nerd Font" ];
+    # serif = [ "Arimo Nerd Font" ];
   };
   xdg.enable = true;
   xdg.userDirs = {
