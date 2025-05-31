@@ -8,6 +8,12 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  services.psd.useBackup = true;
+
+  imports = [
+    ./user/shell/sh.nix
+    # ./user/app/terminal/alacritty.nix
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -17,10 +23,15 @@
     tmux
     yazi
     lazygit
-    nerd-fonts.caskaydia-cove
+    tree
 
     gnumake
     gcc_multi
+
+    # # Fonts
+    nerd-fonts.caskaydia-cove
+    nerd-fonts.ubuntu-sans
+    nerd-fonts.arimo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -36,16 +47,10 @@
     # '')
   ];
 
-  programs.alacritty.enable = true;
-  programs.alacritty.settings = {
-    import = [ .user/apps/alacritty/themes/catppuccin_mocha.toml ];
-    font.normal = {
-      family = "Caskydia Cove Nerd Font";
-      style = "Regular";
-    };
-    font.size = 10;
-
-    env.TERM = "xterm-256color";
+  fonts.fontconfig.defaultFonts = {
+    monospace = [ "CaskaydiaCove Nerd Font" ];
+    sansSerif = [ "UbuntuSans Nerd Font" ];
+    serif = [ "Arimo Nerd Font" ];
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
