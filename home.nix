@@ -8,7 +8,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home-manager.backupFileExtension = true;
 
   imports = [
     ./user/shell/sh.nix
