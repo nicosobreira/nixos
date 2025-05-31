@@ -29,14 +29,15 @@ in
   programs.fish = {
     enable = true;
     shellAliases = myAliases;
+    shellInit = "set fish_greeting";  # Disable fish greeting message
     functions = {
       fish_prompt = {
         body = ''
 set -l last_status $status
 set -l normal (set_color normal)
-set -l status_color (set_color brgreen)
-set -l cwd_color (set_color brblue)
-set -l vcs_color (set_color brpurple)
+set -l status_color (set_color green)
+set -l cwd_color (set_color blue)
+set -l vcs_color (set_color purple)
 set -l prompt_status ""
 
 # Since we display the prompt on a new line allow the directory names to be longer.

@@ -51,7 +51,13 @@
   services.xserver = {
     enable = true;
     autoRepeatDelay = 190;
-    autoRepeatInterval = 50;
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks # is the package manager for Lua modules
+      ];
+
+    };   autoRepeatInterval = 50;
   };
 
   # Configure keymap in X11
