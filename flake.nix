@@ -12,12 +12,15 @@
     systemSettings = {
       system = "x86_64-linux";
       hostname = "nicolas";
+
       timeZone = "America/Sao_Paulo";
       language = "en_US.UTF-8";
       locale = "pt_BR.UTF-8";
+
       bootMode = "uefi";
       bootMoundPath = "/boot";
       grupDevide = "";
+
       gpuType = "nvidia";
     };
 
@@ -31,6 +34,7 @@
       terminal = "alacritty";  # Stored in: ./user/app/terminal
       editor = "nvim";  # Stored in: ./user/app/editor
       shell = "fish";  # Still not automatically
+      browser = "firefox";  # Still not automatically
     };
 
     lib = nixpkgs.lib;

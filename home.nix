@@ -12,14 +12,14 @@
   imports = [
     ./user/shell/sh.nix
     # ./user/app/terminal/alacritty.nix
-    (./. + "./user/app/terminal"+("/"+userSettings.terminal)+".nix")
+    ./user/app/terminal/${userSettings.terminal}.nix
+    ./user/app/editor/${userSettings.editor}.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     # # Development
-    neovim nodejs
     tmux
     yazi
     lazygit
@@ -51,6 +51,19 @@
     monospace = [ userSettings.font ];
     sansSerif = [ "UbuntuSans Nerd Font" ];
     serif = [ "Arimo Nerd Font" ];
+  };
+  xdg.enable = true;
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    music = "${config.home.homeDirectory}/Music";
+    videos = "${config.home.homeDirectory}/Videos";
+    pictures = "${config.home.homeDirectory}/Pictures";
+    templates = "${config.home.homeDirectory}/Templates";
+    download = "${config.home.homeDirectory}/Downloads";
+    documents = "${config.home.homeDirectory}/Documents";
+    desktop = null;
+    publicShare = null;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -86,6 +99,8 @@
   #
   home.sessionVariables = {
     EDITOR = userSettings.editor;
+    TERM = userSettings.terminal;
+    BROWSER = userSettings.browser;
   };
 
   # This value determines the Home Manager release that your configuration is
