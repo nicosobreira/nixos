@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-  home.packges = with pkgs; [
+  home.packages = with pkgs; [
     tmux
   ];
-  programas.tmux = {
+  programs.tmux = {
     enable = true;
 
     # Config
@@ -20,10 +20,11 @@
 
     # Plugins
     plugins = with pkgs; [
-      tmuxPlugins.vim-tmux-navigator;
+      tmuxPlugins.vim-tmux-navigator
     ];
 
     extraConfig = ''
+set -ag terminal-overrides ",$TERM:RGB"
 set -g renumber-windows on
 
 # -- Status Bar --
@@ -62,7 +63,6 @@ bind v split-window -h -c "#{pane_current_path}"
 # Alt vim keys to switch windows
 bind -n M-h previous-window
 bind -n M-l next-window
-
     '';
   };
 }
