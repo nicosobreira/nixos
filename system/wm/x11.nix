@@ -4,7 +4,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    autoRepeatDelay = 190;
+    autoRepeatDelay = 200;
     autoRepeatInterval = 50;
     xkb = {
       layout = "br";
@@ -19,10 +19,9 @@
       ];
     };
     displayManager.lightdm.enable = true;
-    libinput = {
-      enable = true;
-      touchpad.disableWhileTyping = true;
-    };
   };
-
+  libinput = {
+    enable = true;
+    touchpad.disableWhileTyping = true;
+  };
 }
