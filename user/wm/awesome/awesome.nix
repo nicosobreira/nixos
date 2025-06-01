@@ -1,6 +1,7 @@
-{ pkgs, services,  ... }:
+{ ... }:
 
 {
+  xsession.windowManager.awesome.enable = true;
   home.file.".config/awesome".source = ./.;
-  home.file.".config/nvim".recursive = true;
+  home.file.".config/awesome".recursive = true;
 }

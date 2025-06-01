@@ -44,6 +44,8 @@ end
 -- }}}
 
 -- {{{ Variable definitions
+local NUM_TAGS = 4
+
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
@@ -229,13 +231,6 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("light -A 15") end,
-        {description="screen brightness up"}),
-    awful.key({ }, "XF86MonBrightnessDown", function ()
-      awful.util.spawn("light -U 15") end,
-      {description="screen brightness down"}),
-
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
 
@@ -386,7 +381,7 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, NUM_TAGS do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
@@ -432,6 +427,8 @@ for i = 1, 9 do
                   {description = "toggle focused client on tag #" .. i, group = "tag"})
     )
 end
+
+require("keybinds")
 
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
@@ -504,8 +501,15 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    {
+      rule = { class = "Firefox" },
+      properties = { screen = 1, tag = "2" }
+    },
+
+    {
+      rule = { class = "Vivaldi" },
+      properties = { screen = 1, tag = "2" }
+    },
 }
 -- }}}
 
