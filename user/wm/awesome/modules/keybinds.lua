@@ -3,7 +3,7 @@ local awful = require("awful")
 
 local BRIGHTNESS_VALUE = "10"
 
-globalkeys = gears.table.join(
+globalkeys = gears.table.join(globalkeys,
   awful.key({ }, "XF86MonBrightnessUp", function ()
       awful.util.spawn("light -A " .. BRIGHTNESS_VALUE)
     end,
