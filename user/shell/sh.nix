@@ -15,6 +15,7 @@ let
     fgrep = "fgrep --color=auto";
     egrep = "egrep --color=auto";
     ls = "ls -h --color=auto";
+    ll = "ls -la --color=auto";
     la = "ls --almost-all --dereference-command-line --color=auto --format=single-column --human-readable --size --group-directories-first --sort=version";
     tree = "tree -C";
   };
@@ -72,5 +73,4 @@ echo -n -s $status_color $suffix ' ' $normal
     enableCompletion = true;
     shellAliases = myAliases;
   };
-
 }
