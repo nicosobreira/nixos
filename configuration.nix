@@ -9,6 +9,11 @@
     ./system/hardware-configuration.nix
     ./system/gpu/${systemSettings.gpuType}.nix
   ];
+# ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
+  # Rule for light control
+  services.udev.extraRules = ''
+ACTION=="add", SUBSYSTEM=="light", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
+  '';
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -107,6 +112,7 @@
     stow
     xclip
     lshw
+    light
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
