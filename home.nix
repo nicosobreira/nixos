@@ -16,6 +16,7 @@
     ./user/app/nvim/nvim.nix
     ./user/app/vim/vim.nix
     ./user/app/tmux/tmux.nix
+    ./user/app/vivaldi.nix
     ./user/wm/awesome/awesome.nix
   ];
 
