@@ -4,10 +4,11 @@
   home.packages = with pkgs-stable; [
     neovim
 
-    nodejs
+    nodejs  # For nmp
     tree-sitter
-    cargo  # nil LSP
+    cargo  # For nil LSP
   ];
+
   home.file.".config/nvim".source = ./.;
   home.file.".config/nvim".recursive = true;
 }
