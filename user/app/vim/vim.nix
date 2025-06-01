@@ -7,7 +7,6 @@
       vim-tmux-navigator
       vim-commentary
       vim-obsession
-      vim-c-cpp-modern
     ];
     extraConfig = ''
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'

@@ -11,15 +11,15 @@
   ];
 # ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
   # Rule for light control
-  services.udev.extraRules = ''
-ACTION=="add", SUBSYSTEM=="light", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
-  '';
+#   services.udev.extraRules = ''
+# ACTION=="add", SUBSYSTEM=="light", RUN+="/usr/bin/env chgrp video $sys$devpath/brightness", RUN+="/usr/bin/env chmod g+w $sys$devpath/brightness"
+#   '';
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = systemSettings.hostname; # Define your hostname.
+  networking.hostName = systemSettings.hostname;  # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -56,13 +56,13 @@ ACTION=="add", SUBSYSTEM=="light", RUN+="/bin/chgrp video $sys$devpath/brightnes
   services.xserver = {
     enable = true;
     autoRepeatDelay = 190;
+    autoRepeatInterval = 50;
     windowManager.awesome = {
       enable = true;
       luaModules = with pkgs.luaPackages; [
         luarocks # is the package manager for Lua modules
       ];
-
-    };   autoRepeatInterval = 50;
+    };
   };
 
   # Configure keymap in X11
@@ -113,6 +113,7 @@ ACTION=="add", SUBSYSTEM=="light", RUN+="/bin/chgrp video $sys$devpath/brightnes
     xclip
     lshw
     light
+    xorg.xbacklight
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
