@@ -1,7 +1,7 @@
 # Thanks for this guide!
 # https://nixos.wiki/wiki/Nvidia
 
-{ config, lib, pkgs, systemSettings, userSettings, ...}:
+{ config, lib, ...}:
 
 {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
