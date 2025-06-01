@@ -20,7 +20,7 @@
     };
     displayManager.lightdm.enable = true;
   };
-  libinput = {
+  services.libinput = {
     enable = true;
     touchpad.disableWhileTyping = true;
   };
