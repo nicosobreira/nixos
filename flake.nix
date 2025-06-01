@@ -3,11 +3,13 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-25.05";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }:
   let
     systemSettings = {
       system = "x86_64-linux";
@@ -16,10 +18,6 @@
       timeZone = "America/Sao_Paulo";
       language = "en_US.UTF-8";
       locale = "pt_BR.UTF-8";
-
-      bootMode = "uefi";
-      bootMoundPath = "/boot";
-      grupDevide = "";
 
       gpuType = "nvidia";
     };
@@ -35,11 +33,13 @@
       editor = "nvim";  # Stored in: ./user/app/editor
       shell = "fish";  # Stored in: ./user/shell/sh.nix
       browser = "firefox";
-      wm = "awesome";  # Stored in: ./user/wm/${your-wm-name}/${your-wm-name}.nix
+      wm = "awesome";
     };
 
     lib = nixpkgs.lib;
+
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+    pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.system};
   in {
     nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
       system = systemSettings.system;
@@ -47,6 +47,8 @@
       specialArgs = {
         inherit systemSettings;
         inherit userSettings;
+
+        inherit pkgs-stable;
       };
     };
 
@@ -56,6 +58,8 @@
       extraSpecialArgs = {
         inherit systemSettings;
         inherit userSettings;
+
+        inherit pkgs-stable;
       };
     };
   };
