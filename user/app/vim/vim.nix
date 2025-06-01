@@ -9,5 +9,5 @@
       vim-obsession
     ];
   };
-  home.file.".config/vim/vimrc".source = ./vimrc;
+  home.file.".vimrc".source = ./vimrc;
 }
