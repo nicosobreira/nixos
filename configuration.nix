@@ -7,10 +7,11 @@
 {
   imports = [
     ./system/hardware-configuration.nix
-    ./system/gpu/${systemSettings.gpuType}.nix
+    ./system/hardware/power.nix
+    ./system/hardware/opengl.nix
+    ./system/hardware/gpu/${systemSettings.gpuType}.nix
     ./system/security/firewall.nix
     ./system/wm/x11.nix  # Also set up awesome as WM
-    ./system/hardware/power.nix
   ];
 
   # Testing `zram`
@@ -47,9 +48,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable OpenGL
-  hardware.graphics.enable = true;
 
   console = {
     # font = "Lat2-Terminus16";
