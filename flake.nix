@@ -32,7 +32,7 @@
       terminal = "alacritty";  # Stored in: ./user/app/terminal
       editor = "nvim";  # Stored in: ./user/app/editor
       shell = "fish";  # Stored in: ./user/shell/sh.nix
-      browser = "firefox";
+      browser = "vivaldi";
       wm = "awesome";
     };
 

@@ -12,11 +12,11 @@
   imports = [
     ./user/shell/sh.nix
     ./user/app/terminal/alacritty.nix
-    # ./user/app/terminal/${userSettings.terminal}.nix
+    ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/nvim/nvim.nix
     ./user/app/vim/vim.nix
     ./user/app/tmux/tmux.nix
-    ./user/app/vivaldi.nix
+    ./user/app/browser/${userSettings.browser}.nix
     ./user/wm/awesome/awesome.nix
   ];
 
