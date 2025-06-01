@@ -1,5 +1,5 @@
 if vim.bo.filetype ~= "netrw" then
-	return
+  return
 end
 
 -- Navigation mappings
@@ -8,8 +8,6 @@ vim.keymap.set("n", "l", "<CR>", { buffer = true, remap = true, desc = "Open dir
 
 -- File operations
 vim.keymap.set("n", "a", "%", { buffer = true, remap = true, desc = "Create file" })
-vim.keymap.set("n", "A", "d", { buffer = true, remap = true, desc = "Create directory" })
-vim.keymap.set("n", "d", "D", { buffer = true, remap = true, desc = "Delete file" })
 vim.keymap.set("n", "r", "R", { buffer = true, remap = true, desc = "Rename file" })
 
 -- Quit mapping
