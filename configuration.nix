@@ -13,6 +13,14 @@
     ./system/hardware/power.nix
   ];
 
+  # Testing `zram`
+  zramSwap = {
+    enable = true;
+    algorithm = "lz4";
+    memoryPercent = 100;
+    priority = 999;
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
