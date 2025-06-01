@@ -15,6 +15,8 @@
     ./system/app/games.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Testing `zram`
   zramSwap = {
     enable = true;
