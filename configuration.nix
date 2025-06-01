@@ -10,6 +10,7 @@
     ./system/gpu/${systemSettings.gpuType}.nix
     ./system/security/firewall.nix
     ./system/wm/x11.nix  # Also set up awesome as WM
+    ./system/hardware/power.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -70,6 +71,10 @@
   };
 
   fonts.fontDir.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   programs.firefox.enable = true;
 
