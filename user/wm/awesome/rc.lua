@@ -442,7 +442,7 @@ clientbuttons = gears.table.join(
     end)
 )
 
-require("modules.keybinds")
+require("config.keybinds")
 
 -- Set keys
 root.keys(globalkeys)
@@ -505,7 +505,7 @@ awful.rules.rules = {
     --   properties = { screen = 1, tag = "2" } },
 }
 
-require("modules.rules")
+require("config.rules")
 
 -- }}}
 
