@@ -11,8 +11,8 @@
 
   imports = [
     ./user/shell/sh.nix
-    # ./user/app/terminal/alacritty.nix
-    ./user/app/terminal/${userSettings.terminal}.nix
+    ./user/app/terminal/alacritty.nix
+    # ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/nvim/nvim.nix
     ./user/app/vim/vim.nix
     ./user/app/tmux/tmux.nix
@@ -26,9 +26,7 @@
     yazi
     lazygit
     tree
-
-    gnumake
-    gcc_multi
+    fzf
 
     # # Fonts
     userSettings.fontPkg
