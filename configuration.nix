@@ -8,12 +8,9 @@
   imports = [
     ./system/hardware-configuration.nix
     ./system/gpu/${systemSettings.gpuType}.nix
+    ./system/security/firewall.nix
+    ./system/wm/x11.nix  # Also set up awesome as WM
   ];
-# ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
-  # Rule for light control
-#   services.udev.extraRules = ''
-# ACTION=="add", SUBSYSTEM=="light", RUN+="/usr/bin/env chgrp video $sys$devpath/brightness", RUN+="/usr/bin/env chmod g+w $sys$devpath/brightness"
-#   '';
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -43,34 +40,11 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
+  hardware.graphics.enable = true;
 
   console = {
     # font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkb.options in tty.
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    autoRepeatDelay = 190;
-    autoRepeatInterval = 50;
-    windowManager.awesome = {
-      enable = true;
-      luaModules = with pkgs.luaPackages; [
-        luarocks # is the package manager for Lua modules
-      ];
-    };
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "br";
-    variant = "abnt2";
-    model = "pc105";
-    options = "eurosign:e,caps:escape";
   };
 
   # Enable CUPS to print documents.
@@ -83,9 +57,6 @@
   #   enable = true;
   #   pulse.enable = true;
   # };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
@@ -133,12 +104,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
