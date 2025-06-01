@@ -229,13 +229,13 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ }, "XF86MonBrightnessDown", function ()
-      awful.util.spawn("xbacklight -dec 15") end),
-      {description="screen brightness up"}
-    ),
     awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("xbacklight -inc 15") end,
+        awful.util.spawn("light -A 15") end,
         {description="screen brightness up"}
+    ),
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+      awful.util.spawn("light -U 15") end),
+      {description="screen brightness up"}
     ),
 
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,

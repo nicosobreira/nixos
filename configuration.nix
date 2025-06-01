@@ -91,7 +91,11 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.username;
-    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "video"
+      "networkmanager"
+      "wheel"  # Enable ‘sudo’ for the user.
+    ];
   };
 
   fonts.fontDir.enable = true;
@@ -101,6 +105,9 @@
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
+
+  # Brightness control
+  programs.light.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -112,8 +119,6 @@
     stow
     xclip
     lshw
-    light
-    xorg.xbacklight
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
