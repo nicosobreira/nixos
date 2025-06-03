@@ -104,9 +104,6 @@
     curl
     unzip
     gnutar
-
-    gnumake
-    gcc_multi
   ];
 
   # Nix garbage collection
