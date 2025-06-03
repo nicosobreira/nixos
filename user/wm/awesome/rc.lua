@@ -27,6 +27,13 @@ local my_tags = require("modules.my_tags")
 local THEME_NAME = "catppuccin_mocha"
 local INCREASE_WINDOW_FACTOR = 0.05
 
+-- This is used later as the default terminal and editor to run.
+terminal = os.getenv("TERM") or "xterm"
+editor = os.getenv("EDITOR") or "nano"
+browser = os.getenv("BROWSER") or "firefox"
+editor_cmd = terminal .. " -e " .. editor
+
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -45,7 +52,7 @@ do
         in_error = true
 
         naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
+                         title = "ERROR happened:",
                          text = tostring(err) })
         in_error = false
     end)
@@ -61,11 +68,6 @@ if not beautiful.init(custom_theme) then
 end
 
 beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "wallpapers/background.png"
-
--- This is used later as the default terminal and editor to run.
-terminal = os.getenv("TERM") or "xterm"
-editor = os.getenv("EDITOR") or "nano"
-editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -360,6 +362,10 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,           }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
+
+    awful.key({ modkey,           }, "F4",      function (c) c:kill()                         end,
+              {description = "close", group = "client"}),
+
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
@@ -430,7 +436,7 @@ for i = 1, my_tags.NUM_TAGS do
                           end
                      end
                   end,
-                  {description = "move focused client to tag #"..i, group = "tag"}),
+                  {description = "move focused client to tag #" .. i, group = "tag"}),
         -- Toggle tag on focused client.
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
