@@ -10,7 +10,7 @@ awful.rules.rules = gears.table.join(awful.rules.rules,
     properties = { tag = my_tags.get(2) }
   },
   {
-    rule = { class = { "Steam" } },
+    rule = { class = { "steam", "retroarch" } },
     properties = { tag = my_tags.get(3) }
   }
 )

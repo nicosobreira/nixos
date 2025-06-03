@@ -25,13 +25,14 @@ local my_tags = require("modules.my_tags")
 
 -- ~/.config/awesome/themes/ ${theme_name} /theme.lua
 local THEME_NAME = "catppuccin_mocha"
+local INCREASE_WINDOW_FACTOR = 0.05
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
+                     title = "ERROR on startup:",
                      text = awesome.startup_errors })
 end
 
@@ -53,9 +54,13 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(
-  gears.filesystem.get_configuration_dir() .. "themes/" .. THEME_NAME .. "/theme.lua"
-)
+
+local custom_theme = gears.filesystem.get_configuration_dir() .. "themes/" .. THEME_NAME .. "/theme.lua"
+if not beautiful.init(custom_theme) then
+  beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+end
+
+beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "wallpapers/background.png"
 
 -- This is used later as the default terminal and editor to run.
 terminal = os.getenv("TERM") or "xterm"
@@ -179,7 +184,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag(my_tags.get_all(), s, awful.layout.layouts[1])
+    awful.tag(my_tags.get_all(), s, awful.layout.layouts[3])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -289,14 +294,18 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
+              {description = "open a browser", group = "launcher"}),
+
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
+
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( INCREASE_WINDOW_FACTOR)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-INCREASE_WINDOW_FACTOR)          end,
               {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
@@ -578,6 +587,8 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c) c.border_color = "#ffffff" end)
+client.connect_signal("unfocus", function(c) c.border_color = "#ffffff" end)
+-- client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+-- client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}

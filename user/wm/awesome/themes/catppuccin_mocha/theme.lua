@@ -7,7 +7,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 local config_path = gfs.get_configuration_dir()
 
-local theme = {}
+local theme = require(themes_path.."default/theme.lua")
 
 theme.wallpaper = config_path .. "wallpapers/background.png"
 
@@ -20,7 +20,7 @@ theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
+theme.fg_focus      = "#ff0000"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
@@ -60,7 +60,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path .. "default/submenu.png"
+theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 
@@ -132,3 +132,5 @@ rnotification.connect_signal('request::rules', function()
 end)
 
 return theme
+
+-- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
