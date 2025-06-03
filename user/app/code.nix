@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packges = with pkgs; [
+  home.packages = with pkgs; [
     lua
 
     gnumake
