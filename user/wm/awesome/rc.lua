@@ -18,7 +18,13 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Custom modules
 local my_tags = require("modules.my_tags")
+
+-- Custom variables
+
+-- ~/.config/awesome/themes/ ${theme_name} /theme.lua
+local THEME_NAME = "catppuccin_mocha"
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -47,7 +53,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(
+  gears.filesystem.get_configuration_dir() .. "themes/" .. THEME_NAME .. "/theme.lua"
+)
 
 -- This is used later as the default terminal and editor to run.
 terminal = os.getenv("TERM") or "xterm"
@@ -212,7 +220,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            -- mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -453,14 +461,15 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
-                     raise = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-                     screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+      properties = {
+        border_width = beautiful.border_width,
+        border_color = beautiful.border_normal,
+        focus = awful.client.focus.filter,
+        raise = true,
+        keys = clientkeys,
+        buttons = clientbuttons,
+        screen = awful.screen.preferred,
+        placement = awful.placement.no_overlap+awful.placement.no_offscreen
      }
     },
 
