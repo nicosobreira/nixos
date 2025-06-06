@@ -63,10 +63,10 @@
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
