@@ -66,6 +66,7 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    alsa.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -104,6 +105,8 @@
     curl
     unzip
     gnutar
+
+    alsa-utils
   ];
 
   # Nix garbage collection
