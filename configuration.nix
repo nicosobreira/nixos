@@ -74,7 +74,7 @@
     isNormalUser = true;
     description = userSettings.username;
     extraGroups = [
-      "video"
+      "video"  # Screen light control
       "networkmanager"
       "wheel"  # Enable ‘sudo’ for the user.
     ];
@@ -85,6 +85,10 @@
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  };
 
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
@@ -105,6 +109,8 @@
     curl
     unzip
     gnutar
+    unrar
+    p7zip
 
     alsa-utils
   ];
