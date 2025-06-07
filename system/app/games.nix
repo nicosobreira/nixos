@@ -8,7 +8,7 @@
     localNetworkGameTransfers.openFirewall = true;  # Open ports in the firewall for Steam Local Network Game Transfers
   };
   # programs.steam.gamescopeSession = true;
-  # programs.gamemode.enable = true;
+  programs.gamemode.enable = true;
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
