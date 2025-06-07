@@ -2,7 +2,8 @@
 
 let
   moduleName = "catppuccin_mocha";
-in {
+in
+{
   options = {
     ${moduleName}.enable = lib.mkEnableOption "enables ${moduleName}";
   };

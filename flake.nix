@@ -5,11 +5,18 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-25.05";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, stylix, ... }:
   let
     systemSettings = {
       system = "x86_64-linux";
@@ -24,7 +31,7 @@
 
     userSettings = {
       username = "acerola";
-      email = "nicolau.sobreira@gmail.com";
+      email = "nicolau.sobreira@gmail.com";  # Still not set
 
       font = "CaskaydiaCove Nerd Font";
       fontPkg = pkgs.nerd-fonts.caskaydia-cove;
@@ -43,7 +50,10 @@
   in {
     nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
       system = systemSettings.system;
-      modules = [ ./configuration.nix ];
+      modules = [
+        stylix.nixosModules.stylix
+        ./configuration.nix
+      ];
       specialArgs = {
         inherit systemSettings;
         inherit userSettings;

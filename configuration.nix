@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./system/stylix.nix
     ./system/hardware/power.nix
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
@@ -53,16 +54,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   console = {
-    # font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkb.options in tty.
   };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -85,10 +82,6 @@
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-  };
 
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;

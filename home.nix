@@ -19,7 +19,7 @@
     ./user/app/tmux/tmux.nix
     ./user/app/code.nix
     ./user/wm/awesome/awesome.nix
-    ./user/xresources/xresources.nix
+    # ./user/xresources/xresources.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -32,7 +32,6 @@
     fzf
 
     # # Fonts
-    userSettings.fontPkg
     nerd-fonts.ubuntu-sans
     nerd-fonts.arimo
 
@@ -50,13 +49,11 @@
     # '')
   ];
 
-  fonts.fontconfig.defaultFonts = {
-    monospace = [ userSettings.font ];
-    sansSerif = [ userSettings.font ];
-    serif = [ userSettings.font ];
-    # sansSerif = [ "UbuntuSans Nerd Font" ];
-    # serif = [ "Arimo Nerd Font" ];
-  };
+  # fonts.fontconfig.defaultFonts = {
+  #   monospace = [ userSettings.font ];
+  #   sansSerif = [ userSettings.font ];
+  #   serif = [ userSettings.font ];
+  # };
   xdg.enable = true;
   xdg.userDirs = {
     enable = true;
