@@ -64,12 +64,11 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 
-local custom_theme = CONFIG_DIR .. "themes/" .. THEME_NAME .. "/theme.lua"
-if not beautiful.init(custom_theme) then
-  beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-end
-
-beautiful.wallpaper = CONFIG_DIR .. "wallpapers/background.png"
+-- local custom_theme = CONFIG_DIR .. "themes/" .. THEME_NAME .. "/theme.lua"
+-- if not beautiful.init(custom_theme) then
+--   beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- end
+beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

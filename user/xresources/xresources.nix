@@ -1,4 +1,4 @@
-{ lib, userSettings,  ... }:
+{ lib, ... }:
 
 {
   # xresources.path = "/home/${userSettings.username}/.config/X11/Xresources";
