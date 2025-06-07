@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./system/hardware-configuration.nix
+    ./hardware-configuration.nix
     ./system/hardware/power.nix
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
