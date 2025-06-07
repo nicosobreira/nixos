@@ -23,6 +23,8 @@ local my_tags = require("modules.my_tags")
 
 -- Custom variables
 
+local CONFIG_DIR = gears.filesystem.get_configuration_dir()
+
 -- ~/.config/awesome/themes/ ${theme_name} /theme.lua
 local THEME_NAME = "catppuccin_mocha"
 local INCREASE_WINDOW_FACTOR = 0.05
@@ -62,12 +64,12 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 
-local custom_theme = gears.filesystem.get_configuration_dir() .. "themes/" .. THEME_NAME .. "/theme.lua"
+local custom_theme = CONFIG_DIR .. "themes/" .. THEME_NAME .. "/theme.lua"
 if not beautiful.init(custom_theme) then
   beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 end
 
-beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "wallpapers/background.png"
+beautiful.wallpaper = CONFIG_DIR .. "wallpapers/background.png"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -99,18 +101,13 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
-
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+mymainmenu = awful.menu({
+  items = {
+    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+    { "restart", awesome.restart },
+    { "quit", function() awesome.quit() end },
+  }
+})
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -128,21 +125,23 @@ mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
-                    awful.button({ }, 1, function(t) t:view_only() end),
-                    awful.button({ modkey }, 1, function(t)
-                                              if client.focus then
-                                                  client.focus:move_to_tag(t)
-                                              end
-                                          end),
-                    awful.button({ }, 3, awful.tag.viewtoggle),
-                    awful.button({ modkey }, 3, function(t)
-                                              if client.focus then
-                                                  client.focus:toggle_tag(t)
-                                              end
-                                          end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
-                )
+  awful.button({ }, 1, function(t) t:view_only() end),
+  awful.button({ modkey }, 1,
+  function(t)
+    if client.focus then
+        client.focus:move_to_tag(t)
+    end
+  end),
+  awful.button({ }, 3, awful.tag.viewtoggle),
+  awful.button({ modkey }, 3,
+  function(t)
+      if client.focus then
+          client.focus:toggle_tag(t)
+      end
+  end),
+  awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+  awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+)
 
 local tasklist_buttons = gears.table.join(
                      awful.button({ }, 1, function (c)
