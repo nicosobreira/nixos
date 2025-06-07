@@ -24,8 +24,6 @@ vim.keymap.set('t', '<C-j>', '<C-\\><C-n><cmd>wincmd j<CR>')
 vim.keymap.set('t', '<C-k>', '<C-\\><C-n><cmd>wincmd k<CR>')
 vim.keymap.set('t', '<C-l>', '<C-\\><C-n><cmd>wincmd l<CR>')
 
-vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>')
-
 -- Window navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
