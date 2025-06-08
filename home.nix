@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
-  home.homeDirectory = ( "/home/" + userSettings.username );
+  home.homeDirectory = ("/home/" + userSettings.username);
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -64,7 +64,7 @@
     publicShare = null;
   };
   xdg.mimeApps = {
-    enable =  true;
+    enable = true;
     defaultApplications = {
       "default-web-browser" = [ "chromium.desktop" ];
       "text/html" = [ "chromium.desktop" ];

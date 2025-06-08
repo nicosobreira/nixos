@@ -4,9 +4,9 @@
   home.packages = with pkgs-stable; [
     neovim
 
-    nodejs  # For nmp
+    nodejs # For nmp
     tree-sitter
-    cargo  # For nil LSP
+    cargo # For nil LSP
   ];
 
   home.file.".config/nvim".source = ./.;

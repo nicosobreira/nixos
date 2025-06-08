@@ -12,7 +12,7 @@
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
     ./system/security/firewall.nix
-    ./system/wm/x11.nix  # Also set up awesome as WM
+    ./system/wm/x11.nix # Also set up awesome as WM
     ./system/app/games.nix
     ./system/app/syncthing.nix
   ];
@@ -31,8 +31,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = systemSettings.hostname;  # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = systemSettings.timeZone;
@@ -72,9 +72,9 @@
     isNormalUser = true;
     description = userSettings.username;
     extraGroups = [
-      "video"  # Screen light control
+      "video" # Screen light control
       "networkmanager"
-      "wheel"  # Enable ‘sudo’ for the user.
+      "wheel" # Enable ‘sudo’ for the user.
     ];
   };
 
