@@ -6,13 +6,13 @@ local my_tags = require("modules.my_tags")
 awful.rules.rules = gears.table.join(awful.rules.rules,
   -- Browsers
   {
-    rule = { class = { "Firefox", "Vivaldi" } },
+    rule = { class = { "Firefox", "Vivaldi", "Vivaldi-stable" } },
     properties = { tag = my_tags.get(2) }
   },
 
   -- Games
   {
-    rule = { class = { "Steam", "retroarch" } },
+    rule = { class = { "Steam", "steam", "retroarch" } },
     properties = { tag = my_tags.get(3) }
   }
 )
