@@ -186,7 +186,7 @@ local tasklist_buttons = gears.table.join(
     -- set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag(my_tags.get_all(), s, awful.layout.layouts[3])
+    awful.tag(my_tags.get_all(), s, awful.layout.layouts[2])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
