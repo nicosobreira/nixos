@@ -14,6 +14,7 @@
     ./system/security/firewall.nix
     ./system/wm/x11.nix  # Also set up awesome as WM
     ./system/app/games.nix
+    ./system/app/syncthing.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
