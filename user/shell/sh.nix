@@ -4,9 +4,10 @@ let
     dwm-edit = "$EDITOR $HOME/suckless/dwm/config.h";
     l = "lazygit";
     v = "nvim";
+    y = "yazi";
+    c = "clear";
     svim = "sudo vim -u $HOME/.vimrc";
     make = "make -j$(nproc)";
-    c = "clear";
     duh = "du --human-readable";
     mkdir = "mkdir -p";
     dir = "dir --color=auto";
