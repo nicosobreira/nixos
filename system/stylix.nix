@@ -6,7 +6,7 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 10;
+      size = 20;
     };
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -37,10 +37,10 @@
     };
 
     fonts.sizes = {
-      applications = 10;
+      applications = 8;
       terminal = 8;
-      desktop = 10;
-      popups = 10;
+      desktop = 8;
+      popups = 8;
     };
   };
 }
