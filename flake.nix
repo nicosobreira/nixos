@@ -33,7 +33,7 @@
       username = "acerola";
       email = "nicolau.sobreira@gmail.com";  # Still not set
 
-      font = "CaskaydiaCove Nerd Font";
+      font = "Caskaydia Cove Nerd Font";
       fontPkg = pkgs.nerd-fonts.caskaydia-cove;
 
       terminal = "kitty";  # Stored in: ./user/app/terminal
@@ -51,21 +51,24 @@
     nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
       system = systemSettings.system;
       modules = [
-        stylix.nixosModules.stylix
         ./configuration.nix
+        stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup"; # Set backup file extension
+          home-manager.users.${userSettings.username} = ./home.nix;
+
+          home-manager.extraSpecialArgs = {
+            inherit systemSettings;
+            inherit userSettings;
+
+            inherit pkgs-stable;
+          };
+        }
       ];
       specialArgs = {
-        inherit systemSettings;
-        inherit userSettings;
-
-        inherit pkgs-stable;
-      };
-    };
-
-    homeConfigurations.${userSettings.username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [ ./home.nix ];
-      extraSpecialArgs = {
         inherit systemSettings;
         inherit userSettings;
 
