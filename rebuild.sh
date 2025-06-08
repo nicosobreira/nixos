@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# Code from: https://github.com/librephoenix/nixos-config/blob/main/sync.sh
+# Code from: https://github.com/librephoenix/nixos-config/blob/main/sync-system.sh
 
 # Script to synchronize system state
 # with configuration files for nixos system
@@ -8,5 +8,5 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-$SCRIPT_DIR/rebuild-system.sh
-$SCRIPT_DIR/rebuild-user.sh
+# Rebuild system
+sudo nixos-rebuild switch --flake $SCRIPT_DIR
