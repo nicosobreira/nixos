@@ -19,7 +19,6 @@
     ./user/app/tmux/tmux.nix
     ./user/app/code.nix
     ./user/app/keepassxc.nix
-    ./user/app/syncthing.nix
     ./user/wm/awesome/awesome.nix
   ];
 
@@ -63,6 +62,17 @@
     documents = "${config.home.homeDirectory}/Documents";
     desktop = null;
     publicShare = null;
+  };
+  xdg.mimeApps = {
+    enable =  true;
+    defaultApplications = {
+      "default-web-browser" = [ "chromium.desktop" ];
+      "text/html" = [ "chromium.desktop" ];
+      "x-scheme-handler/http" = [ "chromium.desktop" ];
+      "x-scheme-handler/https" = [ "chromium.desktop" ];
+      "x-scheme-handler/about" = [ "chromium.desktop" ];
+      "x-scheme-handler/unknown" = [ "chromium.desktop" ];
+    };
   };
 
   # Home Manager can also manage your environment variables through
