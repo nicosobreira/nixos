@@ -36,7 +36,7 @@
       font = "CaskaydiaCove Nerd Font";
       fontPkg = pkgs.nerd-fonts.caskaydia-cove;
 
-      terminal = "alacritty";  # Stored in: ./user/app/terminal
+      terminal = "kitty";  # Stored in: ./user/app/terminal
       editor = "nvim";  # Stored in: ./user/app/editor
       shell = "fish";  # Stored in: ./user/shell/sh.nix
       browser = "vivaldi";  # Stored in: ./user/app/browser

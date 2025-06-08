@@ -11,7 +11,7 @@
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     # base24Scheme = "${pkgs.base24-schemes}/share/themes/catppuccin-mocha.yaml";
-    image = "./wallpapers/background.png";
+    image = ./../wallpapers/background.png;
     polarity = "dark";
 
     fonts = {
@@ -34,6 +34,13 @@
         package = userSettings.fontPkg;
         name = userSettings.font;
       };
+    };
+
+    fonts.sizes = {
+      applications = 10;
+      terminal = 8;
+      desktop = 10;
+      popups = 10;
     };
   };
 }

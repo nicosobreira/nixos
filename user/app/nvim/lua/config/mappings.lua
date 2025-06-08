@@ -25,10 +25,10 @@ vim.keymap.set('t', '<C-k>', '<C-\\><C-n><cmd>wincmd k<CR>')
 vim.keymap.set('t', '<C-l>', '<C-\\><C-n><cmd>wincmd l<CR>')
 
 -- Window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('n', '<C-l>', '<C-w>l')
+-- vim.keymap.set('n', '<C-h>', '<C-w>h')
+-- vim.keymap.set('n', '<C-j>', '<C-w>j')
+-- vim.keymap.set('n', '<C-k>', '<C-w>k')
+-- vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Visual line navigation
 vim.keymap.set({'n', 'v'}, 'j', 'gj')

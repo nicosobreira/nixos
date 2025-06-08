@@ -1,7 +1,7 @@
 return {
   "alexghergh/nvim-tmux-navigation",
   event = function()
-    if vim.fn.exists "$TMUX" == 1 then
+    if vim.fn.exists("$TMUX") == 1 then
       return "VeryLazy"
     end
   end,
