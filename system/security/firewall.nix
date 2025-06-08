@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   networking.firewall.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ];
-  # networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [ 22000 21027 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 }

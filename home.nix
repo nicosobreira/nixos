@@ -4,14 +4,13 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
-  home.homeDirectory = "/home/"+userSettings.username;
+  home.homeDirectory = ("/home/" + userSettings.username);
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   imports = [
     ./user/shell/sh.nix
-    # ./user/app/terminal/alacritty.nix
     ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/browser/${userSettings.browser}.nix
     ./user/app/nvim/nvim.nix
@@ -19,6 +18,7 @@
     ./user/app/tmux/tmux.nix
     ./user/app/code.nix
     ./user/app/keepassxc.nix
+    ./user/app/syncthing.nix
     ./user/wm/awesome/awesome.nix
   ];
 
