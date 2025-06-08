@@ -2,13 +2,13 @@
 
 {
   programs.chromium.enable = true;
-  programs.chromium.extension = {
+  programs.chromium.extensions = [
     # Ublock Origin Lite
-    { id = "ddkjiahejlhfcafbddmgiahcphecmpfh" };
+    { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
 
     # ChromeKeePass
-    { id = "dphoaaiomekdhacmfoblfblmncpnbahm" };
-  };
+    { id = "dphoaaiomekdhacmfoblfblmncpnbahm"; }
+  ];
 
   programs.chromium.dictionaries = with pkgs; [
     hunspellDictsChromium.en_US
