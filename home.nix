@@ -4,13 +4,14 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
-  home.homeDirectory = ("/home/" + userSettings.username);
+  home.homeDirectory = ( "/home/" + userSettings.username );
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   imports = [
     ./user/shell/sh.nix
+    ./user/shell/tui.nix
     ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/browser/${userSettings.browser}.nix
     ./user/app/nvim/nvim.nix
@@ -22,25 +23,19 @@
     ./user/wm/awesome/awesome.nix
   ];
 
-  home.pointerCursor = {
-    enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 20;
-  };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Adwaita-dark";
+  #     package = pkgs.gnome-themes-extra;
+  #   };
+  # };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     # # Development
-    yazi
-    lazygit
     tree
-    fzf
-
-    # # Fonts
-    nerd-fonts.ubuntu-sans
-    nerd-fonts.arimo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -56,11 +51,6 @@
     # '')
   ];
 
-  # fonts.fontconfig.defaultFonts = {
-  #   monospace = [ userSettings.font ];
-  #   sansSerif = [ userSettings.font ];
-  #   serif = [ userSettings.font ];
-  # };
   xdg.enable = true;
   xdg.userDirs = {
     enable = true;
