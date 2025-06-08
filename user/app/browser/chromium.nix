@@ -6,11 +6,10 @@
     # Ublock Origin Lite
     { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
 
-    # ChromeKeePass
-    { id = "dphoaaiomekdhacmfoblfblmncpnbahm"; }
-  ];
+    # KeePassXC-Browser
+    { id = "oboonakemofpalcgghocfoadofidjkkk"; }
 
-  programs.chromium.dictionaries = with pkgs; [
-    hunspellDictsChromium.en_US
+    # Enhancer for Youtube
+    { id = "ponfpcnoihfmfllpaingbgckeeldkhle"; }
   ];
 }
