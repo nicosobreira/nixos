@@ -6,7 +6,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
 local FONT_NAME = "Caskaydia Cove Nerd Font"
-local FONT_SIZE = 8
+local FONT_SIZE = 10
 
 local theme = {}
 
