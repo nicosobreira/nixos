@@ -18,9 +18,16 @@
     ./user/app/vim/vim.nix
     ./user/app/tmux/tmux.nix
     ./user/app/code.nix
+    ./user/app/keepassxc.nix
     ./user/wm/awesome/awesome.nix
-    # ./user/xresources/xresources.nix
   ];
+
+  home.pointerCursor = {
+    enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 20;
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
