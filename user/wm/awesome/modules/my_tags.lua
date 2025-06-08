@@ -1,5 +1,4 @@
-local my_tags = { " ", "󰖟 ", "󰺷 ", " " }
-local default_tag = "?"
+local my_tags = { " ", "󰖟 ", "󰺷 ", " ", " " }
 
 local M = {}
 
@@ -10,7 +9,7 @@ M.NUM_TAGS = #my_tags
 M.get = function(pos)
   pos = pos or -1
   if pos < 1 or pos > M.NUM_TAGS then
-    return default_tag
+    return my_tags[1]
   end
   return my_tags[pos]
 end
