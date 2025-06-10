@@ -26,7 +26,7 @@ local my_tags = require("modules.my_tags")
 local CONFIG_DIR = gears.filesystem.get_configuration_dir()
 
 -- ~/.config/awesome/themes/ ${theme_name} /theme.lua
-local THEME_NAME = "catppuccin_mocha"
+local THEME_NAME = "xresources"
 local INCREASE_WINDOW_FACTOR = 0.05
 
 -- This is used later as the default terminal and editor to run.
@@ -65,9 +65,10 @@ end
 -- Themes define colours, icons, font and wallpapers.
 
 local custom_theme = string.format("%s/themes/%s/theme.lua", CONFIG_DIR, THEME_NAME)
-if not beautiful.init(custom_theme) then
-  beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-end
+beautiful.init(custom_theme)
+-- if not beautiful.init(custom_theme) then
+--   beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- end
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
