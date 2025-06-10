@@ -65,10 +65,10 @@ end
 -- Themes define colours, icons, font and wallpapers.
 
 local custom_theme = string.format("%s/themes/%s/theme.lua", CONFIG_DIR, THEME_NAME)
-beautiful.init(custom_theme)
--- if not beautiful.init(custom_theme) then
---   beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
--- end
+if not beautiful.init(custom_theme) then
+  gears.debug.print_error(string.format("Theme not found, using the default. Full path is: \"%s\"", custom_theme))
+  beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+end
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -594,8 +594,6 @@ awful.rules.rules = {
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
   end)
 
-  -- client.connect_signal("focus", function(c) c.border_color = "#ffffff" end)
-  -- client.connect_signal("unfocus", function(c) c.border_color = "#ffffff" end)
   client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
   client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
   -- }}}
