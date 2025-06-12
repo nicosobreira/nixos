@@ -189,6 +189,9 @@ local tasklist_buttons = gears.table.join(
     -- Each screen has its own tag table.
     awful.tag(my_tags.get_all(), s, awful.layout.layouts[2])
 
+    -- Steam/Games tag
+    s.tags[3].layout = awful.layout.suit.max
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
