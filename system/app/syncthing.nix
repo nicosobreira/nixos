@@ -2,7 +2,7 @@
 
 let
   dataDir = ("/home/" + userSettings.username + "/Documents");
-  configDir = (dataDir + "/.syncthing");
+  configDir = ("/home/" + userSettings.username + "/.config/syncthing");
 in
 {
   # Open ports in the firewall
