@@ -86,7 +86,7 @@ vim.g.netrw_alto = 1
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 -- Folding
-vim.opt.foldmethod = "syntax"
+vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 
 -- Custom Tabline
