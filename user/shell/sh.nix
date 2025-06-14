@@ -6,6 +6,7 @@ let
     v = "nvim";
     y = "yazi";
     c = "clear";
+    m = "man --pager=\"nvim +Man!\"";
     svim = "sudo vim -u $HOME/.vimrc";
     make = "make -j$(nproc)";
     duh = "du --human-readable";
@@ -20,7 +21,8 @@ let
     la = "ls --almost-all --dereference-command-line --color=auto --format=single-column --human-readable --size --group-directories-first --sort=version";
     tree = "tree -C";
   };
-in {
+in
+{
   home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = true;
