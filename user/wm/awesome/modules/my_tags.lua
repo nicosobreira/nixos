@@ -1,4 +1,4 @@
-local my_tags = { " ", "󰖟 ", "󰺷 ", " ", " " }
+local my_tags = { " ", "󰖟 ", "󰺷 ", " ", " " }
 
 local M = {}
 
