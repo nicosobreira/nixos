@@ -55,7 +55,6 @@
   };
 
   home.sessionVariables = {
-    PAGER = "less -R";
     EDITOR = userSettings.editor;
     TERM = userSettings.terminal;
     BROWSER = userSettings.browser;
