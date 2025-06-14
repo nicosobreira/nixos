@@ -7,18 +7,18 @@ awful.rules.rules = gears.table.join(awful.rules.rules,
   -- Browsers
   {
     rule = { class = { "Firefox", "Vivaldi", "Chromium" } },
-    properties = { tag = my_tags.get(2) }
+    properties = { screen = 1, tag = my_tags.get(2) }
   },
 
   -- Games
   {
     rule = { class = { "Steam", "Retroarch", "pcsx2-qt" } },
-    properties = { tag = my_tags.get(3) }
+    properties = { screen = 1, tag = my_tags.get(3) }
   },
 
   -- Security
   {
     rule = { class = { "KeePassXC" } },
-    properties = { tag = my_tags.get(5) }
+    properties = { screen = 1, tag = my_tags.get(5) }
   }
 )
