@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   programs.steam = {
@@ -12,11 +12,14 @@
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
-  # Xone setup
-  hardware.xone.enable = true;
-  # environment.systemPackages = with pkgs; [
-  #   linuxKernel.packages.linux_zen.xone
-  # ];
+  # Xpad setup
+  environment.systemPackages = with pkgs; [
+    linuxKernel.packages.linux_zen.xpad-noone
+
+    # Games
+    pcsx2
+    mame
+  ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
