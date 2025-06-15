@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 # Code from: https://github.com/librephoenix/nixos-config/blob/main/update.sh
 
 # Script to update my flake without
