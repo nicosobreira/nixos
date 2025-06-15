@@ -17,7 +17,7 @@
 
     # Games
     pcsx2
-    mame
+    mame-tools
     (retroarch.withCores (cores: with cores; [
       genesis-plus-gx
       snes9x
