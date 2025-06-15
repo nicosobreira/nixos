@@ -1,13 +1,18 @@
 { pkgs-stable, ... }:
 
 {
-  home.packages = with pkgs-stable; [
-    neovim
-
+  programs.neovim.enable = true;
+  programs.neovim.extraPackages = with pkgs-stable; [
     nodejs # For nmp
     tree-sitter # Binary
-    cargo # For nil LSP
     ripgrep # For telescope
+
+    # LSP, formatters, etc.
+    stylua
+    zls
+    rocmPackages.llvm.rocm-merged-llvm # Clangd
+    nil # Nix
+    stylua
   ];
 
   home.file.".config/nvim".source = ./.;
