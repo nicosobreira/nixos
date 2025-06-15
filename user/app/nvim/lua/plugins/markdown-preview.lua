@@ -1,16 +1,19 @@
 return {
 	"iamcco/markdown-preview.nvim",
-	cond = function()
-		return vim.fn.executable("nodejs") == 1
-	end,
 	ft = { "markdown" },
+	cond = function()
+		return vim.fn.executable("npm") ~= 0
+	end,
+	init = function()
+		vim.g.mkdp_filetypes = { "markdown" }
+	end,
+	build = "cd app && npm install",
 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-	build = function() vim.fn["mkdp#util#install"]() end,
 	keys = {
 		{
 			"<leader>.",
-			"<cmd>MarkdownPreviewToggle<CR>",
-			desc = "Markdown preview",
+			"<cmd>MarkdowmPreviewToggle<CR>",
+			desc = "Toggle Markdown Preview"
 		},
 	},
 }

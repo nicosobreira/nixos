@@ -1,5 +1,5 @@
 if vim.bo.filetype ~= "netrw" then
-  return
+	return
 end
 
 -- Navigation mappings

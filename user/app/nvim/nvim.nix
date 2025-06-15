@@ -5,8 +5,9 @@
     neovim
 
     nodejs # For nmp
-    tree-sitter
+    tree-sitter # Binary
     cargo # For nil LSP
+    ripgrep # For telescope
   ];
 
   home.file.".config/nvim".source = ./.;
