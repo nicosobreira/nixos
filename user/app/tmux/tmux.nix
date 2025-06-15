@@ -16,9 +16,9 @@
     prefix = "C-a";
 
     # Plugins
-    plugins = with pkgs; [
-      tmuxPlugins.vim-tmux-navigator
-    ];
+    # plugins = with pkgs; [
+    #   tmuxPlugins.vim-tmux-navigator
+    # ];
 
     extraConfig = ''
       set -ag terminal-overrides ",$TERM:RGB"
@@ -45,12 +45,6 @@
       # Use prefix + r to reload .tmux.conf
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf\; display-message "Config Reloaded"
-
-      # Use Ctrl + hjkl to move between panes
-      bind -n C-h select-pane -L
-      bind -n C-j select-pane -D
-      bind -n C-k select-pane -U
-      bind -n C-l select-pane -R
 
       # Create window/split keep current directory
       bind c new-window -c "#{pane_current_path}"
