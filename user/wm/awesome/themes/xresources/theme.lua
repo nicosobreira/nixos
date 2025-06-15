@@ -10,14 +10,14 @@ local FONT_NAME = "Caskaydia Cove Nerd Font"
 local FONT_SIZE = 10
 
 local colors = {
-	black = xrdb.color0,
-	red = xrdb.color1,
-	green = xrdb.color2,
-	yellow = xrdb.color3,
-	blue = xrdb.color4,
-	purple = xrdb.color5,
-	cyan = xrdb.color6,
-	white = xrdb.color7,
+    black = xrdb.color0,
+    red = xrdb.color1,
+    green = xrdb.color2,
+    yellow = xrdb.color3,
+    blue = xrdb.color4,
+    purple = xrdb.color5,
+    cyan = xrdb.color6,
+    white = xrdb.color7,
 }
 
 local theme = {}
@@ -53,6 +53,8 @@ theme.border_marked = colors.white
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
+
+theme.menubar.fg_normal = colors.white
 
 theme.prompt_fg_cursor = colors.white
 theme.prompt_bg_cursor = colors.white
