@@ -12,7 +12,7 @@ trim_trailing_whitespace = true
 charset = utf-8
 
 [*.lua]
-indent_style = space
+indent_style = tab
 indent_size = 4
 
 # Match Nix files, set indent to spaces with width of two
