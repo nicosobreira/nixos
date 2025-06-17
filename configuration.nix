@@ -50,10 +50,6 @@
     LC_TIME = systemSettings.locale;
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   console = {
     useXkbConfig = true; # use xkb.options in tty.
   };
