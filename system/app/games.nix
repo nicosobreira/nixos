@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   imports = [
     ./games/steam.nix
     ./games/retro.nix
@@ -16,5 +15,4 @@
     # Xpad setup
     linuxKernel.packages.linux_zen.xpad-noone
   ];
-
 }
