@@ -126,7 +126,7 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = myma
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
-menubar = require("modules.my_menubar").new(terminal)
+menubar.show_categories = false
 -- }}}
 
 -- Keyboard map indicator and switcher
