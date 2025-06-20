@@ -8,6 +8,7 @@
 
     gnumake
     gcc_multi
+    gdb
 
     zig
   ];

@@ -68,9 +68,13 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 
-local custom_theme = string.format("%s/themes/%s/theme.lua", CONFIG_DIR, THEME_NAME)
+local custom_theme = string.format("%sthemes/%s/theme.lua", CONFIG_DIR, THEME_NAME)
 if not beautiful.init(custom_theme) then
-	gears.debug.print_error(string.format('Theme not found, using the default. Full path is: "%s"', custom_theme))
+	naughty.notify({
+		preset = naughty.config.presets.critical,
+		title = "ERROR while loading custom theme:",
+		text = string.format("Path: %s", custom_theme)
+	})
 	beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 end
 
@@ -83,7 +87,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-	awful.layout.suit.floating,
+  awful.layout.suit.floating,
 	awful.layout.suit.tile,
 	awful.layout.suit.tile.left,
 	awful.layout.suit.tile.bottom,
@@ -614,9 +618,11 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 client.connect_signal("focus", function(c)
-	c.border_color = beautiful.border_focus
+	-- c.border_color = beautiful.border_focus
+	c.border_color = "#ffffff"
 end)
 client.connect_signal("unfocus", function(c)
-	c.border_color = beautiful.border_normal
+	-- c.border_color = beautiful.border_normal
+	c.border_color = "#ffffff"
 end)
 -- }}}

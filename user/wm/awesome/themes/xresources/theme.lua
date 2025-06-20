@@ -39,7 +39,7 @@ theme.useless_gap = dpi(0)
 theme.border_width = dpi(1)
 theme.border_normal = colors.black
 theme.border_focus = colors.green
-theme.border_marked = colors.white
+theme.border_marked = colors.green
 
 -- There are other variable sets
 -- overriding the default one when
@@ -53,8 +53,6 @@ theme.border_marked = colors.white
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
-
-theme.menubar.fg_normal = colors.white
 
 theme.prompt_fg_cursor = colors.white
 theme.prompt_bg_cursor = colors.white
