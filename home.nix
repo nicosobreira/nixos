@@ -27,6 +27,7 @@
   home.packages = with pkgs; [
     # # Development
     tree
+    stow
   ];
 
   xdg.enable = true;

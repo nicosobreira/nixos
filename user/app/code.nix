@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
   home.packages = with pkgs; [
@@ -12,4 +12,10 @@
 
     zig
   ];
+
+  programs.git = {
+    enable = true;
+    userName  = "nicosobreira";
+    userEmail = userSettings.email;
+  };
 }

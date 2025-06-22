@@ -1,11 +1,10 @@
 { pkgs, ... }:
 
 {
-  # programs.neovim.enable = true;
+  programs.neovim.enable = true;
   # programs.neovim.extraPackages = with pkgs; [ ];
 
   home.packages = with pkgs; [
-    neovim
     nodejs # For nmp
     tree-sitter # Binary
     ripgrep # For telescope

@@ -27,6 +27,8 @@
     priority = 999;
   };
 
+  environment.localBinInPath = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
