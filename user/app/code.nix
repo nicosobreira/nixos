@@ -10,12 +10,14 @@
     gcc_multi
     gdb
 
+    rocmPackages.llvm.clang-unwrapped
+
     zig
   ];
 
   programs.git = {
     enable = true;
-    userName  = "nicosobreira";
+    userName = "nicosobreira";
     userEmail = userSettings.email;
   };
 }
