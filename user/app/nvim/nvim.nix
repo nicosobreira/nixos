@@ -12,8 +12,8 @@
 
     # LSP, formatters, etc.
     stylua
+    lua52Packages.lua-lsp
     zls
-    rocmPackages.llvm.rocm-merged-llvm # Clangd
     nil # Nix
   ];
 
