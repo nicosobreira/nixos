@@ -1,4 +1,9 @@
-{ config, pkgs, userSettings, ... }:
+{
+  config,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -28,6 +33,8 @@
     # # Development
     tree
     stow
+
+    musescore
   ];
 
   xdg.enable = true;
@@ -46,12 +53,12 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "default-web-browser" = [ "chromium.desktop" ];
-      "text/html" = [ "chromium.desktop" ];
-      "x-scheme-handler/http" = [ "chromium.desktop" ];
-      "x-scheme-handler/https" = [ "chromium.desktop" ];
-      "x-scheme-handler/about" = [ "chromium.desktop" ];
-      "x-scheme-handler/unknown" = [ "chromium.desktop" ];
+      "default-web-browser" = [ (userSettings.browser + ".desktop") ];
+      "text/html" = [ (userSettings.browser + ".desktop") ];
+      "x-scheme-handler/http" = [ (userSettings.browser + ".desktop") ];
+      "x-scheme-handler/https" = [ (userSettings.browser + ".desktop") ];
+      "x-scheme-handler/about" = [ (userSettings.browser + ".desktop") ];
+      "x-scheme-handler/unknown" = [ (userSettings.browser + ".desktop") ];
     };
   };
 

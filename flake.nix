@@ -16,7 +16,14 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, stylix, ... }:
+  outputs =
+    {
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      stylix,
+      ...
+    }:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -31,7 +38,7 @@
 
       userSettings = {
         username = "acerola";
-        email = "nicolau.sobreira@gmail.com"; # Still not set
+        email = "nicolau.sobreira@gmail.com";
 
         font = "Caskaydia Cove Nerd Font";
         fontPkg = pkgs.nerd-fonts.caskaydia-cove;
@@ -39,7 +46,7 @@
         terminal = "kitty"; # Stored in: ./user/app/terminal
         editor = "nvim"; # Stored in: ./user/app/editor
         shell = "fish"; # Stored in: ./user/shell/sh.nix
-        browser = "chromium"; # Stored in: ./user/app/browser
+        browser = "brave"; # Stored in: ./user/app/browser
         wm = "awesome";
       };
 
