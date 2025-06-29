@@ -4,6 +4,7 @@
   imports = [
     ./games/steam.nix
     ./games/retro.nix
+    ./games/minecraft.nix
   ];
 
   programs.gamemode.enable = true;
