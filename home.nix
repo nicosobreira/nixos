@@ -16,7 +16,7 @@
 
   imports = [
     ./user/shell/sh.nix
-    ./user/shell/tui.nix
+    ./user/shell/tools.nix
     ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/browser/${userSettings.browser}.nix
     ./user/app/nvim/nvim.nix
@@ -50,6 +50,7 @@
     desktop = null;
     publicShare = null;
   };
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
