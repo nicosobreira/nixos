@@ -20,6 +20,7 @@
     ./system/wm/x11.nix # Also set up awesome as WM
     ./system/app/games.nix
     ./system/app/syncthing.nix
+    ./system/app/flatpak.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
