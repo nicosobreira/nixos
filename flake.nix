@@ -14,6 +14,8 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    polymc.url = "github:PolyMC/PolyMC";
   };
 
   outputs =
@@ -23,7 +25,7 @@
       home-manager,
       stylix,
       ...
-    }:
+    }@inputs:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -73,6 +75,7 @@
               inherit userSettings;
 
               inherit pkgs-stable;
+              inherit inputs;
             };
           }
         ];
@@ -81,6 +84,7 @@
           inherit userSettings;
 
           inherit pkgs-stable;
+          inherit inputs;
         };
       };
       formatter.${systemSettings.system} = nixpkgs.legacyPackages.${systemSettings.system}.nixpkgs-fmt;
