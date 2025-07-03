@@ -35,6 +35,7 @@
     stow
 
     musescore
+    moc
   ];
 
   xdg.enable = true;
