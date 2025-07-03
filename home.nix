@@ -15,7 +15,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./user/wm/awesome/awesome.nix
+    ./user/wm/awesome.nix
     ./user/shell/sh.nix
     ./user/shell/tools.nix
     ./user/app/terminal/${userSettings.terminal}.nix
@@ -25,6 +25,7 @@
     ./user/app/tmux/tmux.nix
     ./user/app/code.nix
     ./user/app/keepassxc.nix
+    ./user/app/music_player/rmpc.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -35,7 +36,6 @@
     stow
 
     musescore
-    moc
   ];
 
   xdg.enable = true;
