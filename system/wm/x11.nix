@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
+
+  imports = [
+    ./awesome.nix
+  ];
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -12,17 +17,11 @@
       model = "pc105";
       options = "eurosign:e,caps:escape";
     };
-    windowManager.awesome = {
-      enable = true;
-      noArgb = true;
-      luaModules = with pkgs.luaPackages; [
-        luarocks # is the package manager for Lua modules
-      ];
-    };
     displayManager = {
       lightdm.enable = true;
     };
   };
+
   services.libinput = {
     enable = true;
     touchpad.disableWhileTyping = true;
