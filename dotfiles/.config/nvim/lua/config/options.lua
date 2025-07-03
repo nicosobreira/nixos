@@ -10,7 +10,7 @@ vim.opt.linebreak = true
 vim.opt.mouse = "a"
 vim.opt.autoread = true
 vim.opt.encoding = "utf-8"
-vim.opt.showmode = false
+vim.opt.showmode = true
 vim.opt.scrolloff = 10
 vim.opt.backspace = { "indent", "eol", "start" }
 
@@ -41,11 +41,13 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 -- Visual whitespace
-vim.opt.list = true
 vim.opt.listchars = { tab = "| ", trail = "*" }
+vim.o.list = true
 
 -- Clipboard
-vim.opt.clipboard:append("unnamedplus")
+vim.schedule(function()
+	vim.o.clipboard = "unnamedplus"
+end)
 
 -- Auto comment
 vim.opt.formatoptions = "cro"
