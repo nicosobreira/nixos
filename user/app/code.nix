@@ -7,10 +7,13 @@
     lua
 
     gnumake
+    cmake
     gcc_multi
     gdb
 
-    rocmPackages.llvm.clang-unwrapped
+    # clang
+    clang-tools
+    # llvmPackages.libcxxClang
 
     zig
   ];
