@@ -73,7 +73,7 @@ if not beautiful.init(custom_theme) then
 	naughty.notify({
 		preset = naughty.config.presets.critical,
 		title = "ERROR while loading custom theme:",
-		text = string.format("Path: %s", custom_theme)
+		text = string.format("Path: %s", custom_theme),
 	})
 	beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 end
@@ -87,7 +87,6 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-  awful.layout.suit.floating,
 	awful.layout.suit.tile,
 	awful.layout.suit.tile.left,
 	awful.layout.suit.tile.bottom,
@@ -96,6 +95,7 @@ awful.layout.layouts = {
 	-- awful.layout.suit.fair.horizontal,
 	-- awful.layout.suit.spiral,
 	-- awful.layout.suit.spiral.dwindle,
+	awful.layout.suit.floating,
 	awful.layout.suit.max,
 	awful.layout.suit.max.fullscreen,
 	-- awful.layout.suit.magnifier,
