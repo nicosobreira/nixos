@@ -10,6 +10,7 @@ return {
 		-- https://github.com/folke/snacks.nvim
 		{
 			"folke/snacks.nvim",
+			enabled = false,
 			lazy = false,
 			priority = 1000,
 		},
