@@ -16,6 +16,7 @@
     };
 
     polymc.url = "github:PolyMC/PolyMC";
+    polymc.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -79,6 +80,7 @@
             };
           }
         ];
+
         specialArgs = {
           inherit systemSettings;
           inherit userSettings;
