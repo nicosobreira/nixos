@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.tmux = {
@@ -14,11 +14,6 @@
 
     # Keybinds
     prefix = "C-a";
-
-    # Plugins
-    # plugins = with pkgs; [
-    #   tmuxPlugins.vim-tmux-navigator
-    # ];
 
     extraConfig = ''
       set -ag terminal-overrides ",$TERM:RGB"
@@ -54,6 +49,9 @@
       # Alt vim keys to switch windows
       bind -n M-h previous-window
       bind -n M-l next-window
+
+      # Tmux-manager
+      bind -r N run-shell "tmux-manager ~/nixos"
     '';
   };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 let
   shellAliases = {
     dwm-edit = "$EDITOR $HOME/suckless/dwm/config.h";
@@ -60,29 +60,6 @@ in
           echo
           echo -s $cwd_color (prompt_pwd) $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status
           echo -n -s $status_color $suffix ' ' $normal
-        '';
-      };
-      man = {
-        body = ''
-          # start of bold:
-          set -x LESS_TERMCAP_mb (set_color --bold red)
-          set -x LESS_TERMCAP_md (set_color --bold red)
-          # end of all formatting:
-          set -x LESS_TERMCAP_me (set_color normal)
-          set -x LESS_TERMCAP_se (set_color normal)
-
-          # end of standout (inverted colors):
-          set -x LESS_TERMCAP_se (set_color normal)
-          # start of standout (inverted colors):
-          set -x LESS_TERMCAP_so (set_color --reverse)
-
-          # start of underline:
-          set -x LESS_TERMCAP_us (set_color --underline green)
-          # end of underline:
-          set -x LESS_TERMCAP_ue (set_color normal)
-          # (no change – I like the default)
-
-          command man $argv
         '';
       };
     };
