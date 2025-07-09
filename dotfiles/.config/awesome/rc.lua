@@ -20,6 +20,7 @@ require("awful.hotkeys_popup.keys")
 
 -- Custom modules
 local my_tags = require("modules.my_tags")
+local my_widgets = require("widgets")
 
 -- Custom variables
 local CONFIG_DIR = gears.filesystem.get_configuration_dir()
@@ -133,13 +134,16 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 menubar.show_categories = false
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget({
-	format = "%d/%m %H:%M",
+my_calendar = wibox.widget({
+	format = "%d/%m",
+	refresh = 600,
+	widget = wibox.widget.textclock,
+})
+
+my_time = wibox.widget({
+	format = "%H:%M",
 	widget = wibox.widget.textclock,
 })
 
@@ -206,7 +210,7 @@ awful.screen.connect_for_each_screen(function(s)
 	-- set_wallpaper(s)
 
 	-- Each screen has its own tag table.
-	awful.tag(my_tags.get_all(), s, awful.layout.layouts[2])
+	awful.tag(my_tags.get_all(), s, awful.layout.layouts[1])
 
 	-- Steam/Games tag
 	s.tags[3].layout = awful.layout.suit.max
@@ -245,7 +249,7 @@ awful.screen.connect_for_each_screen(function(s)
 	})
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s })
+	s.mywibox = awful.wibar({ screen = s, position = "top" })
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
@@ -259,9 +263,12 @@ awful.screen.connect_for_each_screen(function(s)
 		s.mytasklist, -- Middle widget
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			-- mykeyboardlayout,
+			spacing = beautiful.get_font_height(beautiful.font),
 			wibox.widget.systray(),
-			mytextclock,
+			my_calendar,
+			my_time,
+			my_widgets.battery.setup(),
+			my_widgets.volume.setup(),
 			s.mylayoutbox,
 		},
 	})

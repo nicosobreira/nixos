@@ -1,26 +1,50 @@
-local textbox = require("wibox.widget.textbox")
-local timer = require("gears.timer")
+local wibox = require("wibox")
+local gears = require("gears")
+local awful = require("awful")
 
-local battery = { mt = {} }
+local function set_timer(battery, opts)
+	local path = string.format("/sys/class/power_supply/%s/capacity", opts.bat)
+	assert(gears.filesystem.file_readable(path))
 
-function battery.new()
-	local widget = textbox()
+	gears.timer({
+		timeout = opts.timeout,
+		call_now = true,
+		autostart = true,
+		callback = function()
+			local file = io.open(path, "r")
 
-	function widget._private.update()
-		local str = "ABC"
-		widget:set_markup(str)
-		widget._timer.timeout = calc_timeout(60)
-		widget._timer:again()
-		return true
-	end
+			battery.battery = file:read()
 
-	widget._timer = timer.weak_start_new(60, w._private.update)
-
-	return widget
+			file:close()
+		end,
+	})
 end
 
-function battery.mt:__call(...)
-	return new(...)
+local M = {}
+
+--- Default options
+M.opts = {
+	bat = "BAT1",
+	timeout = 10,
+}
+
+---@param opts table
+function M.setup(opts)
+	opts = opts or {}
+	opts.bat = opts.bat or M.opts.bat
+	opts.timeout = opts.timeout or M.opts.timeout
+
+	local battery = wibox.widget({
+		text = "100%",
+		widget = wibox.widget.textbox,
+		set_battery = function(self, value)
+			self.text = tonumber(value) .. "%"
+		end,
+	})
+
+	set_timer(battery, opts)
+
+	return battery
 end
 
-return setmetatable(battery, battery.mt)
+return M
