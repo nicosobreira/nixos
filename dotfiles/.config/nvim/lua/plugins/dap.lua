@@ -104,6 +104,7 @@ return {
 			remap = false,
 		},
 	},
+
 	config = function()
 		local dap = require("dap")
 		local ui = require("dapui")
@@ -125,7 +126,7 @@ return {
 				type = "gdb",
 				request = "launch",
 				program = function()
-					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 				end,
 				cwd = "${workspaceFolder}",
 				stopAtBeginningOfMainSubprogram = false,
@@ -135,25 +136,27 @@ return {
 				type = "gdb",
 				request = "attach",
 				program = function()
-					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 				end,
 				pid = function()
-					local name = vim.fn.input('Executable name (filter): ')
+					local name = vim.fn.input("Executable name (filter): ")
 					return require("dap.utils").pick_process({ filter = name })
 				end,
-				cwd = '${workspaceFolder}'
+				cwd = "${workspaceFolder}",
 			},
 			{
-				name = 'Attach to gdbserver :1234',
-				type = 'gdb',
-				request = 'attach',
-				target = 'localhost:1234',
+				name = "Attach to gdbserver :1234",
+				type = "gdb",
+				request = "attach",
+				target = "localhost:1234",
 				program = function()
-					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 				end,
-				cwd = '${workspaceFolder}'
+				cwd = "${workspaceFolder}",
 			},
 		}
+
+		dap.configurations.cpp = dap.configurations.c
 
 		ui.setup()
 
