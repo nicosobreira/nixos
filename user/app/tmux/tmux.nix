@@ -51,7 +51,8 @@
       bind -n M-l next-window
 
       # Tmux-manager
-      bind -r N run-shell "tmux-manager ~/nixos"
+      bind -r C run-shell "tmux-manager ~/nixos"
+      bind -r N run-shell "tmux-manager ~/.config/nvim"
     '';
   };
 }
