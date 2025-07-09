@@ -68,7 +68,6 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup"; # Set backup file extension
             home-manager.users.${userSettings.username} = ./home.nix;
 
             home-manager.extraSpecialArgs = {
