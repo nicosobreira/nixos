@@ -10,14 +10,14 @@ local FONT_NAME = "Caskaydia Cove Nerd Font"
 local FONT_SIZE = 10
 
 local colors = {
-    black = xrdb.color0,
-    red = xrdb.color1,
-    green = xrdb.color2,
-    yellow = xrdb.color3,
-    blue = xrdb.color4,
-    purple = xrdb.color5,
-    cyan = xrdb.color6,
-    white = xrdb.color7,
+	black = xrdb.color0,
+	red = xrdb.color1,
+	green = xrdb.color2,
+	yellow = xrdb.color3,
+	blue = xrdb.color4,
+	purple = xrdb.color5,
+	cyan = xrdb.color6,
+	white = xrdb.color7,
 }
 
 local theme = {}
