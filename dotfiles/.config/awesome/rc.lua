@@ -19,7 +19,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Custom modules
-local my_tags = require("modules.my_tags")
+local my_tags = require("config.my_tags")
 local my_widgets = require("widgets")
 
 -- Custom variables

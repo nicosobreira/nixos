@@ -1,7 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local my_tags = require("modules.my_tags")
+local my_tags = require("config.my_tags")
 
 awful.rules.rules = gears.table.join(
 	awful.rules.rules,

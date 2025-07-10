@@ -11,6 +11,7 @@ M.get = function(pos)
 	if pos < 1 or pos > M.NUM_TAGS then
 		return my_tags[1]
 	end
+
 	return my_tags[pos]
 end
 
