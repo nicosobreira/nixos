@@ -17,18 +17,25 @@ vim.opt.backspace = { "indent", "eol", "start" }
 -- Undo
 vim.opt.backup = false
 vim.opt.swapfile = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
 
--- "Ominfunc" help size
-vim.opt.pumheight = 10
-
--- Conceal (hide) `*` and `**`
-vim.opt.conceallevel = 2
+-- Visual settings
+vim.opt.termguicolors = true -- Enable 24-bit colors
+vim.opt.showmatch = true -- Highlight matching brackets
+vim.opt.matchtime = 2 -- How long to show matching bracket
+vim.opt.cmdheight = 1 -- Command line height
+vim.opt.completeopt = "menuone,noinsert,noselect" -- Completion options
+vim.opt.showmode = false -- Don't show mode in command line
+vim.opt.pumheight = 10 -- Popup menu height
+vim.opt.conceallevel = 2 -- Don't hide markup
+vim.opt.concealcursor = "" -- Don't hide cursor line markup
+vim.opt.lazyredraw = true -- Don't redraw during macros
+vim.opt.synmaxcol = 300 -- Syntax highlighting limit
 
 -- Spell check
-vim.opt.spelllang = { "en", "pt_br" }
+vim.opt.spelllang = "en"
 
 -- Indentation
 local tabSize = 2
@@ -46,7 +53,7 @@ vim.o.list = true
 
 -- Clipboard
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+	vim.opt.clipboard:append("unnamedplus")
 end)
 
 -- Auto comment
@@ -64,6 +71,7 @@ vim.opt.cursorline = true
 
 -- Search
 vim.opt.hlsearch = true
+vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
@@ -90,6 +98,9 @@ vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 -- Folding
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
+
+vim.opt.updatetime = 300 -- Faster completion
+vim.opt.timeoutlen = 500 -- Key timeout duration
 
 -- Custom Tabline
 vim.opt.tabline = "%!v:lua.require('custom.tabline').get()"
