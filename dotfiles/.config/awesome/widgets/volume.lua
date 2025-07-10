@@ -48,12 +48,17 @@ function M.setup(opts)
 	M.set_attributes()
 
 	M.widget = wibox.widget({
-		text = M.format(),
 		widget = wibox.widget.textbox,
+		text = M.format(),
 		set_volume = function(self)
 			self.text = M.format()
 		end,
 	})
+
+	M.widget:connect_signal("button::press", function()
+		M.set_attributes()
+	end)
+
 	return M.widget
 end
 
@@ -70,26 +75,19 @@ function M.set_commands()
 	}
 end
 
-function M.set_attributes(callback)
+function M.set_attributes()
 	awful.spawn.easy_async(M.opts.commands.get, function(stdout)
 		local line = get_front_left_line(stdout)
 
 		if not line then
 			M.opts.current_volume = 0
 			M.opts.is_mute = false
-			if callback then
-				callback()
-			end
 			return
 		end
 
 		M.opts.is_mute = get_is_mute(line)
 
 		M.opts.current_volume = get_volume(line)
-
-		if callback then
-			callback()
-		end
 	end)
 end
 
