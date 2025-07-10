@@ -5,6 +5,7 @@
     # Games
     pcsx2
     mame-tools
+    duckstation
     (retroarch.withCores (
       cores: with cores; [
         genesis-plus-gx
