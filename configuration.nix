@@ -26,12 +26,12 @@
   nixpkgs.config.allowUnfree = true;
 
   # Testing `zram`
-  # zramSwap = {
-  #   enable = true;
-  #   algorithm = "zstd";
-  #   memoryPercent = 100;
-  #   priority = 999;
-  # };
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 100;
+    priority = 999;
+  };
 
   environment.localBinInPath = true;
 
