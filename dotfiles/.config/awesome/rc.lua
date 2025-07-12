@@ -210,9 +210,10 @@ awful.screen.connect_for_each_screen(function(s)
 	-- set_wallpaper(s)
 
 	-- Each screen has its own tag table.
-	awful.tag(my_tags.get_all(), s, awful.layout.layouts[1])
+	awful.tag(my_tags.get_all(), s, awful.layout.suit.tile)
 
 	-- Steam/Games tag
+	s.tags[2].layout = awful.layout.suit.max
 	s.tags[3].layout = awful.layout.suit.max
 
 	-- Create a promptbox for each screen
