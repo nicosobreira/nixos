@@ -1,7 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	-- branch = "0.1.x",
-	-- tag = "0.1.8",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "BurntSushi/ripgrep" },
@@ -52,6 +50,13 @@ return {
 				require("telescope.builtin").help_tags()
 			end,
 			desc = "[f]ind [h]elp pages",
+		},
+		{
+			"<leader>fm",
+			function()
+				require("telescope.builtin").man_pages()
+			end,
+			desc = "[f]ind [m]an pages",
 		},
 	},
 }
