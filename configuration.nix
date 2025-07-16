@@ -21,6 +21,7 @@
     ./system/app/games.nix
     ./system/app/syncthing.nix
     ./system/app/flatpak.nix
+    ./system/app/podman.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
