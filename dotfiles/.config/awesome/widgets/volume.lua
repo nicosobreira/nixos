@@ -28,7 +28,7 @@ local M = {}
 M.opts = {
 	step = 3,
 	mix_control = "Master",
-	commands = {},
+	commands = nil,
 	current_volume = 0,
 	is_mute = false,
 	widget = nil,
@@ -92,20 +92,20 @@ function M.set_attributes()
 end
 
 function M.update_widget()
-	if M.widget and M.widget.set_volume then
+	if M.widget then
 		M.widget:set_volume()
 	end
 end
 
 function M.unmute()
-	awful.spawn(M.opts.commands.unmute)
+	awful.spawn.easy_async(M.opts.commands.unmute)
 	M.opts.is_mute = false
 
 	M.update_widget()
 end
 
 function M.toggle()
-	awful.spawn(M.opts.commands.toggle)
+	awful.spawn.easy_async(M.opts.commands.toggle)
 	M.opts.is_mute = not M.opts.is_mute
 
 	M.update_widget()
@@ -118,7 +118,7 @@ function M.up()
 		return
 	end
 
-	awful.spawn(M.opts.commands.up)
+	awful.spawn.easy_async(M.opts.commands.up)
 	M.opts.current_volume = M.opts.current_volume + M.opts.step
 
 	M.update_widget()
@@ -131,15 +131,10 @@ function M.down()
 		return
 	end
 
-	awful.spawn(M.opts.commands.down)
+	awful.spawn.easy_async(M.opts.commands.down)
 	M.opts.current_volume = M.opts.current_volume - M.opts.step
 
 	M.update_widget()
-end
-
-if not M.opts.commands.get then
-	M.set_commands()
-	M.set_attributes()
 end
 
 return M
