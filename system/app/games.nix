@@ -15,6 +15,5 @@
   environment.systemPackages = with pkgs; [
     # Xpad setup
     linuxKernel.packages.linux_zen.xpad-noone
-
   ];
 }

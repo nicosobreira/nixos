@@ -4,6 +4,7 @@
   imports = [
     ./code/vscode.nix
   ];
+
   home.packages = with pkgs; [
     gh
 
@@ -19,8 +20,6 @@
     # llvmPackages.libcxxClang
 
     zig
-
-    podman
   ];
 
   programs.git = {
