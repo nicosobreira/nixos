@@ -4,137 +4,74 @@ local awful = require("awful")
 
 -- Volume control using `amixer`
 
-local function get_front_left_line(stdout)
-	return stdout:match("Front Left:[^\n]*") or false
-end
-
-local function get_volume(line)
-	return tonumber(line:match("%[(%d+)%%%]")) or 0
-end
-
-local function get_is_mute(line)
-	if line:match("%[on%]") then
-		return false
-	elseif line:match("%[off%]") then
-		return true
-	end
-
-	return nil
-end
-
 local M = {}
 
---- Default options
-M.opts = {
-	step = 3,
-	mix_control = "Master",
-	commands = nil,
-	current_volume = 0,
-	is_mute = false,
-	widget = nil,
+local opts = {
+	icons = {
+		mute = "󰝟",
+		low = "󰕿",
+		medium = "󰖀",
+		high = "󰕾",
+	},
+
+	volume_step = "5",
 }
 
-function M.format()
-	local mute_text = M.opts.is_mute and "M " or ""
-	return string.format("%s[%d%%]", mute_text, M.opts.current_volume or 0)
-end
+local volume_widget = wibox.widget.textbox()
 
----@param opts table
-function M.setup(opts)
-	opts = opts or {}
-	-- utils.tables.merge(M.opts, opts)
+local function update_volume()
+	awful.spawn.easy_async_with_shell("amixer get Master", function(stdout)
+		local line = stdout:match("Front Left:[^\n]*")
 
-	M.set_commands()
-	M.set_attributes()
-
-	M.widget = wibox.widget({
-		widget = wibox.widget.textbox,
-		text = M.format(),
-		set_volume = function(self)
-			self.text = M.format()
-		end,
-	})
-
-	M.widget:connect_signal("button::press", function()
-		M.set_attributes()
-	end)
-
-	return M.widget
-end
-
-function M.set_commands()
-	local control = M.opts.mix_control
-	local step = M.opts.step
-
-	M.opts.commands = {
-		up = string.format("amixer set %s -M %d%%+", control, step),
-		down = string.format("amixer set %s -M %d%%-", control, step),
-		toggle = string.format("amixer set %s toggle", control),
-		unmute = string.format("amixer set %s unmute", control),
-		get = string.format("amixer get %s", control),
-	}
-end
-
-function M.set_attributes()
-	awful.spawn.easy_async(M.opts.commands.get, function(stdout)
-		local line = get_front_left_line(stdout)
-
-		if not line then
-			M.opts.current_volume = 0
-			M.opts.is_mute = false
-			return
+		local volume_text = line:match("%[(%d+)%%%]")
+		if volume_text == nil then
+			volume_text = "0"
 		end
 
-		M.opts.is_mute = get_is_mute(line)
+		local volume = tonumber(volume_text)
 
-		M.opts.current_volume = get_volume(line)
+		-- "on" or "off"
+		local is_mute = false
+		if line:match("%[off%]") then
+			is_mute = true
+		end
+
+		local icon = opts.icons.medium
+
+		if not is_mute then
+			if volume <= 25 then
+				icon = opts.icons.low
+			elseif volume <= 55 then
+				icon = opts.icons.medium
+			else
+				icon = opts.icons.high
+			end
+		else
+			icon = opts.icons.mute
+		end
+
+		volume_widget.text = string.format("%s %s%%", icon, volume_text)
 	end)
 end
 
-function M.update_widget()
-	if M.widget then
-		M.widget:set_volume()
-	end
-end
-
-function M.unmute()
-	awful.spawn.easy_async(M.opts.commands.unmute)
-	M.opts.is_mute = false
-
-	M.update_widget()
-end
+-- Initial update
+update_volume()
 
 function M.toggle()
-	awful.spawn.easy_async(M.opts.commands.toggle)
-	M.opts.is_mute = not M.opts.is_mute
-
-	M.update_widget()
+	awful.spawn("amixer set Master toggle", false)
+	update_volume()
 end
 
-function M.up()
-	M.unmute()
-
-	if M.opts.current_volume + M.opts.step > 100 then
-		return
-	end
-
-	awful.spawn.easy_async(M.opts.commands.up)
-	M.opts.current_volume = M.opts.current_volume + M.opts.step
-
-	M.update_widget()
+function M.increase()
+	awful.spawn.with_shell("amixer set Master unmute && amixer set Master " .. opts.volume_step .. "%+", false)
+	update_volume()
 end
 
-function M.down()
-	M.unmute()
-
-	if M.opts.current_volume - M.opts.step < 0 then
-		return
-	end
-
-	awful.spawn.easy_async(M.opts.commands.down)
-	M.opts.current_volume = M.opts.current_volume - M.opts.step
-
-	M.update_widget()
+function M.decrease()
+	awful.spawn.with_shell("amixer set Master unmute && amixer set Master " .. opts.volume_step .. "%-", false)
+	update_volume()
 end
+
+M.widget = volume_widget
 
 return M

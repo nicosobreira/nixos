@@ -266,10 +266,11 @@ awful.screen.connect_for_each_screen(function(s)
 			layout = wibox.layout.fixed.horizontal,
 			spacing = beautiful.get_font_height(beautiful.font),
 			wibox.widget.systray(),
+			my_widgets.bright.widget,
+			my_widgets.volume.widget,
+			my_widgets.battery.setup(),
 			my_calendar,
 			my_time,
-			my_widgets.battery.setup(),
-			my_widgets.volume.setup(),
 			s.mylayoutbox,
 		},
 	})
