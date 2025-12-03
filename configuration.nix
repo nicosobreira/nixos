@@ -18,31 +18,26 @@
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
     ./system/security/firewall.nix
     ./system/wm/x11.nix # Also set up awesome as WM
-    ./system/app/games.nix
-    ./system/app/syncthing.nix
-    ./system/app/flatpak.nix
+    # ./system/app/games.nix
+    # ./system/app/syncthing.nix
+    # ./system/app/flatpak.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
-  # Testing `zram`
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 100;
-    priority = 999;
-  };
-
   environment.localBinInPath = true;
+
+  # Home manager
+  home-manager = {
+    backupFileExtension = "backup";
+    useUserPackages = true;
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = systemSettings.hostname; # Define your hostname.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.hostName = systemSettings.hostname;
+  networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = systemSettings.timeZone;
 
   i18n.defaultLocale = systemSettings.language;
@@ -58,22 +53,26 @@
     LC_TIME = systemSettings.locale;
   };
 
+  # xkb options in tty
   console = {
-    useXkbConfig = true; # use xkb.options in tty.
+    useXkbConfig = true;
   };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  # Audio
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
   };
 
   # Bluetooth
-  # hardware.bluetooth.enable = true;
-  # services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
@@ -88,17 +87,15 @@
 
   fonts.fontDir.enable = true;
 
-  environment.shells = with pkgs; [ fish ];
-  users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
+  environment.shells = with pkgs; [ bash ];
+  users.defaultUserShell = pkgs.bash;
+  programs.bash.enable = true;
 
   # Brightness control
   programs.light.enable = true;
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     git
     xclip
     lshw
@@ -114,15 +111,24 @@
     alsa-utils
   ];
 
-  # Nix garbage collection
+  # Nix config
   nix = {
-    settings.auto-optimise-store = true;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
     gc = {
       persistent = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 4d";
     };
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -132,27 +138,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  # Just don't change it
   system.stateVersion = "25.05"; # Did you read the comment?
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 }

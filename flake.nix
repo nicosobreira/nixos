@@ -2,11 +2,11 @@
   description = "My first flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -14,15 +14,12 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    polymc.url = "github:PolyMC/PolyMC";
-    polymc.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
       nixpkgs,
-      nixpkgs-stable,
+      nixpkgs-unstable,
       home-manager,
       stylix,
       ...
@@ -42,21 +39,21 @@
       userSettings = {
         username = "acerola";
         email = "nicolau.sobreira@gmail.com";
+        githubUsername = "nicosobreira";
 
         font = "Caskaydia Cove Nerd Font";
         fontPkg = pkgs.nerd-fonts.caskaydia-cove;
 
         terminal = "kitty"; # Stored in: ./user/app/terminal
         editor = "nvim"; # Stored in: ./user/app/editor
-        shell = "fish"; # Stored in: ./user/shell/sh.nix
+        shell = "bash"; # Stored in: ./user/shell/sh.nix
         browser = "brave"; # Stored in: ./user/app/browser
-        wm = "awesome";
       };
 
       lib = nixpkgs.lib;
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-      pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
     in
     {
       nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
@@ -74,7 +71,7 @@
               inherit systemSettings;
               inherit userSettings;
 
-              inherit pkgs-stable;
+              inherit pkgs-unstable;
               inherit inputs;
             };
           }
@@ -84,7 +81,7 @@
           inherit systemSettings;
           inherit userSettings;
 
-          inherit pkgs-stable;
+          inherit pkgs-unstable;
           inherit inputs;
         };
       };

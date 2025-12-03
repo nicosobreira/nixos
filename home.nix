@@ -15,22 +15,18 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./user/wm/awesome.nix
-    ./user/shell/sh.nix
     ./user/shell/tools.nix
     ./user/app/terminal/${userSettings.terminal}.nix
     ./user/app/browser/${userSettings.browser}.nix
-    ./user/app/nvim/nvim.nix
-    ./user/app/vim/vim.nix
+    ./user/app/editor/nvim.nix
+    ./user/app/editor/vim.nix
     ./user/app/tmux/tmux.nix
-    ./user/app/code.nix
-    ./user/app/keepassxc.nix
+    ./user/app/git.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # # Development
     tree
     stow
 
@@ -65,7 +61,7 @@
 
   home.sessionVariables = {
     EDITOR = userSettings.editor;
-    TERM = userSettings.terminal;
+    TERMINAL = userSettings.terminal;
     BROWSER = userSettings.browser;
   };
 

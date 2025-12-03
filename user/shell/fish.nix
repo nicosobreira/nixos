@@ -25,7 +25,7 @@ in
 {
   home.shell.enableFishIntegration = true;
   programs.fish = {
-    enable = true;
+    enable = false;
     inherit shellAliases;
     shellInit = "set fish_greeting"; # Disable fish greeting message
     functions = {
@@ -63,11 +63,5 @@ in
         '';
       };
     };
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    inherit shellAliases;
   };
 }
