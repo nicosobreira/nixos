@@ -1,28 +1,14 @@
 { userSettings, ... }:
 
 {
-  # home.packages = with pkgs; [
-  #   gh
-  #
-  #   lua
-  #
-  #   gnumake
-  #   cmake
-  #   gcc_multi
-  #   gdb
-  #
-  #   # clang
-  #   clang-tools
-  #   # llvmPackages.libcxxClang
-  #
-  #   zig
-  # ];
-
-  programs.gh.enable = true;
-
   programs.git = {
     enable = true;
-    user.name = userSettings.githubUsername;
-    user.email = userSettings.email;
+    userName = userSettings.githubUsername;
+    userEmail = userSettings.email;
+  };
+
+  programs.gh = {
+    enable = true;
+    settings.github.oauth_token = builtins.readFile ("/home/" + userSettings.username + "/.config/gh/token");
   };
 }
