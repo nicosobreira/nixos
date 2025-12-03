@@ -3,8 +3,7 @@
 {
   imports = [
     ./games/steam.nix
-    ./games/retro.nix
-    ./games/minecraft.nix
+    # ./games/retro.nix
   ];
 
   programs.gamemode.enable = true;

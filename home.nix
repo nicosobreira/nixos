@@ -15,14 +15,15 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./user/shell/tools.nix
-    ./user/app/terminal/${userSettings.terminal}.nix
-    ./user/app/browser/${userSettings.browser}.nix
-    ./user/app/editor/nvim.nix
-    ./user/app/editor/vim.nix
-    ./user/app/tmux/tmux.nix
-    ./user/app/git.nix
-    ./user/code.nix
+    ./user/code/shell/tools.nix
+    ./user/code/terminal/${userSettings.terminal}.nix
+    ./user/browser/${userSettings.browser}.nix
+    ./user/code/editor/nvim.nix
+    ./user/code/editor/vim.nix
+    ./user/code/tmux/tmux.nix
+    ./user/code/git.nix
+    ./user/games.nix
+    ./user/apps.nix
   ];
 
   home.sessionVariables = {

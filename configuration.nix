@@ -18,9 +18,8 @@
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
     ./system/security/firewall.nix
     ./system/wm/x11.nix # Also set up awesome as WM
-    # ./system/app/games.nix
+    ./system/app/flatpak.nix
     # ./system/app/syncthing.nix
-    # ./system/app/flatpak.nix
   ];
 
   environment.localBinInPath = true;
