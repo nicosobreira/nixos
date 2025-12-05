@@ -22,7 +22,6 @@
     ./user/code/editor/vim.nix
     ./user/code/tmux/tmux.nix
     ./user/code/git.nix
-    ./user/games.nix
     ./user/apps.nix
   ];
 
