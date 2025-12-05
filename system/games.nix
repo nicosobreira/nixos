@@ -3,6 +3,7 @@
 {
   imports = [
     ./games/steam.nix
+    ./games/minecraft-bedrock.nix
     # ./games/retro.nix
   ];
 
