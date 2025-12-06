@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    kdePackages.okular
-    musescore
+    clang-tools
+    lua-language-server
   ];
 }

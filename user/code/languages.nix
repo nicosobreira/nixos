@@ -9,7 +9,6 @@
     gcc_multi
     gdb
 
-    clang-tools
-    # llvmPackages.libcxxClang
+    clang
   ];
 }
