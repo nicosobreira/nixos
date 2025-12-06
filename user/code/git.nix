@@ -3,8 +3,10 @@
 {
   programs.git = {
     enable = true;
-    userName = userSettings.githubUsername;
-    userEmail = userSettings.email;
+    settings = {
+      user.name = userSettings.githubUsername;
+      user.email = userSettings.email;
+    };
   };
 
   programs.gh = {
