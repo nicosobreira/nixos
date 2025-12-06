@@ -11,7 +11,7 @@
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     # base24Scheme = "${pkgs.base24-schemes}/share/themes/catppuccin-mocha.yaml";
-    image = ./../wallpapers/background.png;
+    image = ./../wallpapers/nausicaa/1.png;
     polarity = "dark";
 
     fonts = {
