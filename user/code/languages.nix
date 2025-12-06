@@ -6,7 +6,6 @@
 
     gnumake
     cmake
-    gcc_multi
     gdb
 
     clang
