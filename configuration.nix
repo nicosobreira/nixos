@@ -103,7 +103,6 @@
   environment.systemPackages = with pkgs; [
     vim
     git
-    xclip
     lshw
 
     wget

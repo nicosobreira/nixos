@@ -1,8 +1,12 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./awesome.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    xclip
   ];
 
   # Enable the X11 windowing system.
