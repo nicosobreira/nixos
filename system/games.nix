@@ -4,6 +4,7 @@
   imports = [
     ./games/steam.nix
     ./games/minecraft-bedrock.nix
+    # ./games/lutris.nix
     # ./games/retro.nix
   ];
 
