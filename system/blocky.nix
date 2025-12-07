@@ -2,7 +2,7 @@
 
 {
   services.blocky = {
-    enable = true;
+    enable = false;
     settings = {
       ports.dns = 53; # Port for incoming DNS Queries.
 
@@ -21,15 +21,16 @@
         denylists = {
           # Adblocking
           ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
+
           # Another filter for blocking adult sites
           adult = [ "https://blocklistproject.github.io/Lists/porn.txt" ];
+
           # You can add additional categories
         };
 
         # Configure what block categories are used
         clientGroupsBlock = {
-          default = [ "ads" ];
-          kids-ipad = ["ads" "adult"];
+          default = [ "ads" "adult" ];
         };
       };
     };
