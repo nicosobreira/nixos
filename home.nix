@@ -25,6 +25,8 @@
     ./user/code/languages.nix
     ./user/code/lsp.nix
     ./user/apps.nix
+
+    ./user/lutris.nix
   ];
 
   home.sessionVariables = {
