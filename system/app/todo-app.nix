@@ -1,5 +1,0 @@
-{ ... }:
-
-{
-  services.vikunja.enable = true;
-}
