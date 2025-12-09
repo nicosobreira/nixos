@@ -5,4 +5,6 @@
     kdePackages.okular
     musescore
   ];
+
+  programs.obsidian.enable = true;
 }

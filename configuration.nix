@@ -19,7 +19,6 @@
     ./system/security/firewall.nix
     ./system/wm/x11.nix # Also set up awesome as WM
     ./system/app/flatpak.nix
-    ./system/app/todo-app.nix
     ./system/games.nix
     # ./system/app/syncthing.nix
   ];

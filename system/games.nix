@@ -11,9 +11,6 @@
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
-  # hardware.xone.enable = true;
-  # hardware.xpad-noone.enable = true;
-
   boot.blacklistedKernelModules = [
     "shawan"
     "shawan-gamepad"

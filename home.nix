@@ -25,6 +25,7 @@
     ./user/code/languages.nix
     ./user/code/lsp.nix
     ./user/apps.nix
+    ./user/todo-app.nix
 
     ./user/lutris.nix
   ];
@@ -39,12 +40,8 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
-    music = "${config.home.homeDirectory}/Music";
-    videos = "${config.home.homeDirectory}/Videos";
-    pictures = "${config.home.homeDirectory}/Pictures";
-    templates = "${config.home.homeDirectory}/Templates";
-    download = "${config.home.homeDirectory}/Downloads";
-    documents = "${config.home.homeDirectory}/Documents";
+    music = null;
+    templates = null;
     desktop = null;
     publicShare = null;
   };

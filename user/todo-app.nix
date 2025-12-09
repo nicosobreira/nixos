@@ -3,6 +3,10 @@
 {
   programs.taskwarrior = {
     enable = true;
-    package = pkgs.taskwarrior-tui;
   };
+
+  home.packages = with pkgs; [
+    taskwarrior-tui
+    vit
+  ];
 }
