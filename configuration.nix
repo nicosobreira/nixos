@@ -1,15 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   pkgs,
   systemSettings,
   userSettings,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ./system/stylix.nix
@@ -93,7 +90,7 @@
 
   fonts.fontDir.enable = true;
 
-  environment.shells = with pkgs; [ bash ];
+  environment.shells = with pkgs; [bash];
   users.defaultUserShell = pkgs.bash;
   programs.bash.enable = true;
 

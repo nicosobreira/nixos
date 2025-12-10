@@ -4,5 +4,8 @@
   home.packages = with pkgs; [
     clang-tools
     lua-language-server
+
+    stylua
+    alejandra
   ];
 }

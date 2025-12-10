@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.lutris.enable = true;
 
   home.packages = with pkgs; [
@@ -23,10 +25,11 @@
     };
 
     libretro = {
-      package = (pkgs.retroarch.withCores (cores: with cores; [
-        snes9x
-        mgba
-      ]));
+      package = pkgs.retroarch.withCores (cores:
+        with cores; [
+          snes9x
+          mgba
+        ]);
     };
   };
 }
