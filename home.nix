@@ -26,7 +26,7 @@
     ./user/todo-app.nix
 
     ./user/lutris.nix
-    ./user/mario64.nix
+    # ./user/mario64.nix
   ];
 
   home.sessionVariables = {

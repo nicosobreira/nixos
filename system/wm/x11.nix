@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./awesome.nix
   ];
@@ -34,7 +32,7 @@
 
   # Set dark theme for GTK and QT applications globally
   environment.variables = {
-    GTK_THEME = "Adwaita:dark";  # Default GTK dark theme
-    QT_QPA_PLATFORMTHEME = "qt5ct";  # For Qt applications
+    GTK_THEME = "Adwaita:dark";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 }
