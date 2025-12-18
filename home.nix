@@ -3,13 +3,11 @@
   pkgs,
   userSettings,
   ...
-}:
-
-{
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
-  home.homeDirectory = ("/home/" + userSettings.username);
+  home.homeDirectory = "/home/" + userSettings.username;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -50,12 +48,12 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "default-web-browser" = [ (userSettings.browser + ".desktop") ];
-      "text/html" = [ (userSettings.browser + ".desktop") ];
-      "x-scheme-handler/http" = [ (userSettings.browser + ".desktop") ];
-      "x-scheme-handler/https" = [ (userSettings.browser + ".desktop") ];
-      "x-scheme-handler/about" = [ (userSettings.browser + ".desktop") ];
-      "x-scheme-handler/unknown" = [ (userSettings.browser + ".desktop") ];
+      "default-web-browser" = [(userSettings.browser + ".desktop")];
+      "text/html" = [(userSettings.browser + ".desktop")];
+      "x-scheme-handler/http" = [(userSettings.browser + ".desktop")];
+      "x-scheme-handler/https" = [(userSettings.browser + ".desktop")];
+      "x-scheme-handler/about" = [(userSettings.browser + ".desktop")];
+      "x-scheme-handler/unknown" = [(userSettings.browser + ".desktop")];
     };
   };
 

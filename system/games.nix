@@ -6,7 +6,7 @@
   imports = [
     ./games/steam.nix
     ./games/minecraft-bedrock.nix
-    # ./games/retro.nix
+    ./games/retro.nix
   ];
 
   programs.gamemode.enable = true;
@@ -20,6 +20,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    mame-tools
+    prismlauncher
   ];
 }
