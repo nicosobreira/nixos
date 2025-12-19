@@ -22,6 +22,7 @@
     ./user/code/git.nix
     ./user/code/languages.nix
     ./user/code/lsp.nix
+    ./user/code/direnv.nix
     ./user/apps.nix
     ./user/todo-app.nix
 

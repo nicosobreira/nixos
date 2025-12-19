@@ -59,6 +59,8 @@
   # services.printing.enable = true;
 
   # Audio
+  services.pulseaudio.enable = false;
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -99,8 +101,8 @@
   environment.systemPackages = with pkgs; [
     vim
     git
-    lshw
 
+    lshw
     wget
     curl
     unzip
@@ -109,7 +111,7 @@
     unrar
     p7zip
 
-    alsa-utils
+    pavucontrol
   ];
 
   # Nix config
