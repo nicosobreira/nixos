@@ -61,6 +61,7 @@
   # Audio
   services.pulseaudio.enable = false;
 
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -102,7 +103,7 @@
     vim
     git
 
-    lshw
+    # lshw
     wget
     curl
     unzip
@@ -111,7 +112,7 @@
     unrar
     p7zip
 
-    pavucontrol
+    pwvucontrol
   ];
 
   # Nix config
