@@ -7,13 +7,6 @@
 
   home.packages = with pkgs; [
     antimicrox
-
-    # SM64Plus build dependencies
-    git
-    pkg-config
-    libusb1
-    SDL2
-    cmake
   ];
 
   programs.lutris.runners = {

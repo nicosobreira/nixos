@@ -25,6 +25,7 @@
     ./user/code/direnv.nix
     ./user/apps.nix
     ./user/todo-app.nix
+    ./user/lutris.nix
     # ./user/mario64.nix
   ];
 

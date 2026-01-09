@@ -10,7 +10,5 @@
   home.packages = with pkgs; [
     tree
     stow
-
-    musescore
   ];
 }
