@@ -22,6 +22,9 @@
 
   environment.localBinInPath = true;
 
+  services.udisks2.enable = true;
+  programs.gnome-disks.enable = true;
+
   # Home manager
   home-manager = {
     backupFileExtension = "backup";
@@ -81,6 +84,7 @@
       "video" # Screen light control
       "networkmanager"
       "wheel" # Enable ‘sudo’ for the user.
+      "storage"
     ];
   };
 

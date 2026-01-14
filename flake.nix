@@ -2,8 +2,8 @@
   description = "My first flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -16,13 +16,13 @@
     };
   };
 
-  outputs = {
+  outputs = inputs @ {
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
     stylix,
     ...
-  } @ inputs: let
+  }: let
     systemSettings = {
       system = "x86_64-linux";
       hostname = "nicolas";
