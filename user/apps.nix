@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     musescore
+    qbittorrent
 
     kdePackages.okular
     kdePackages.dolphin
