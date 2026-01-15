@@ -115,8 +115,6 @@
     gnutar
     unrar
     p7zip
-
-    pwvucontrol
   ];
 
   # Nix config

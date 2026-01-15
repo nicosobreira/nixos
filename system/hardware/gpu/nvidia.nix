@@ -1,11 +1,11 @@
 # Thanks for this guide!
 # https://nixos.wiki/wiki/Nvidia
-
-{ config, lib, ... }:
-
 {
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
+  config,
+  lib,
+  ...
+}: {
+  nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
       "nvidia-settings"
@@ -18,7 +18,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     prime = {

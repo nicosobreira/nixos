@@ -7,11 +7,11 @@
           nxengine
           snes9x
           pcsx2
-          # genesis-plus-gx
-          # beetle-psx-hw
-          # desmume
-          # mgba
-          # parallel-n64
+          genesis-plus-gx
+          beetle-psx-hw
+          melonds
+          mgba
+          parallel-n64
         ]
     ))
   ];

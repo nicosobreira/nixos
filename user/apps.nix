@@ -1,9 +1,12 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    kdePackages.okular
     musescore
+
+    kdePackages.okular
     kdePackages.dolphin
     kdePackages.kio-admin
+
+    pwvucontrol
   ];
 
   programs.obsidian.enable = true;
