@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     mame-tools
+    parallel-launcher
     (retroarch.withCores (
       cores:
         with cores; [
@@ -11,7 +12,6 @@
           beetle-psx-hw
           melonds
           mgba
-          parallel-n64
         ]
     ))
   ];
