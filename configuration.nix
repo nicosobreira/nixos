@@ -14,7 +14,7 @@
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
     ./system/security/firewall.nix
-    ./system/wm/x11.nix # Also set up awesome as WM
+    ./system/wm/wayland.nix # Also set up awesome as WM
     ./system/app/flatpak.nix
     ./system/games.nix
     # ./system/app/syncthing.nix

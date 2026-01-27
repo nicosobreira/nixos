@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./awesome.nix
+    ./wm/awesome.nix
   ];
 
   environment.systemPackages = with pkgs; [
