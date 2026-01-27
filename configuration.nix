@@ -131,8 +131,8 @@
     gc = {
       persistent = true;
       automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 4d";
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
   };
 
