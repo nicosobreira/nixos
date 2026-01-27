@@ -6,11 +6,6 @@
   imports = [
     ./wm/sway.nix
   ];
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true; # GTK apps + portals
-  };
-
   # Required for Wayland
   security.polkit.enable = true;
 
@@ -24,22 +19,6 @@
       };
     };
   };
-
-  # Basic Wayland utilities
-  environment.systemPackages = with pkgs; [
-    sway
-    swaylock
-    swayidle
-    waybar
-    wofi
-    foot
-    grim
-    slurp
-    wl-clipboard
-    mako
-    playerctl
-    xdg-utils
-  ];
 
   # Required for screen sharing, file pickers, etc.
   xdg.portal = {
