@@ -10,6 +10,8 @@
   imports = [
     ./hardware-configuration.nix
     ./system/stylix.nix
+
+    ./system/printing.nix
     ./system/hardware/power.nix
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
@@ -70,9 +72,6 @@
   console = {
     useXkbConfig = true;
   };
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Audio
   services.pulseaudio.enable = false;
