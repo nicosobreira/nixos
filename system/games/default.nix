@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./games/steam.nix
-    ./games/retro.nix
+    ./steam.nix
+    ./retro.nix
   ];
 
   programs.gamemode.enable = true;
