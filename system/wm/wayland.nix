@@ -26,4 +26,6 @@
     wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
+
+  virtualisation.waydroid.enable = true;
 }

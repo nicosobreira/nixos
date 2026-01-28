@@ -8,7 +8,5 @@
   home.packages = with pkgs; [
     tree
     stow
-
-    exfatprogs
   ];
 }

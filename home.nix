@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  userSettings,
-  ...
-}: {
+{userSettings, ...}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
@@ -13,16 +8,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./user/code/shell/tools.nix
-    ./user/code/terminal/${userSettings.terminal}.nix
+    ./user/code
     ./user/browser/${userSettings.browser}.nix
-    ./user/code/editor/nvim.nix
-    ./user/code/editor/vim.nix
-    ./user/code/tmux/tmux.nix
-    ./user/code/git.nix
-    ./user/code/languages.nix
-    ./user/code/lsp.nix
-    ./user/code/direnv.nix
     ./user/apps.nix
     ./user/todo-app.nix
     ./user/lutris.nix
