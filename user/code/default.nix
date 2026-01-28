@@ -23,7 +23,7 @@
 
     # Lsp
     clang-tools
-    nixd
+    nil
     lua-language-server
     bash-language-server
     shellcheck
