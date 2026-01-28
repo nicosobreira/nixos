@@ -8,9 +8,15 @@
   host = systemSettings.hostname;
   user = config.home.username;
 in {
-  home.packages = [pkgs.nil pkgs.nixfmt];
+  home.packages = with pkgs; [
+    nil
+    alejandra
+  ];
 
   xdg.configFile."nil/config.toml".text = ''
+    [language.nix]
+    formatting.command = [ "alejandra" ]
+
     [nix]
     flake = true
 

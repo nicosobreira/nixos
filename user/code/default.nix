@@ -9,6 +9,7 @@
     ./terminal/${userSettings.terminal}.nix
     ./shell/tools.nix
     ./git.nix
+    ./nil.nix
   ];
 
   home.packages = with pkgs; [
@@ -30,6 +31,5 @@
 
     # Formatters
     stylua
-    alejandra
   ];
 }
