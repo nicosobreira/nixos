@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ./system/stylix.nix
 
-    ./system/printing.nix
+    ./system/printing.nix # Not working
     ./system/hardware/power.nix
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/${systemSettings.gpuType}.nix

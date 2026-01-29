@@ -1,12 +1,9 @@
-{ userSettings, ... }:
+{userSettings, ...}: let
+  homeDir = "/home/" + userSettings.username;
 
-let
-  homeDir = ("/home/" + userSettings.username);
-
-  dataDir = (homeDir + "/Documents");
-  configDir = (homeDir + "/.config/syncthing");
-in
-{
+  dataDir = homeDir + "/Documents";
+  configDir = homeDir + "/.config/syncthing";
+in {
   # Open ports in the firewall
   networking.firewall.allowedTCPPorts = [
     22000
@@ -37,20 +34,20 @@ in
       };
       folders = {
         "Passwords" = {
-          path = (dataDir + "/Passwords");
+          path = dataDir + "/Passwords";
           devices = [
             "phone"
             "chromebook"
           ];
         };
         "retro" = {
-          path = (homeDir + "/Games/retro");
+          path = homeDir + "/Games/retro";
           devices = [
             "chromebook"
           ];
         };
         "Music" = {
-          path = (homeDir + "/Music");
+          path = homeDir + "/Music";
           devices = [
             "phone"
           ];

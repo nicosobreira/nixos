@@ -1,5 +1,4 @@
-{ ... }:
-let
+{...}: let
   shellAliases = {
     dwm-edit = "$EDITOR $HOME/suckless/dwm/config.h";
     l = "lazygit";
@@ -21,8 +20,7 @@ let
     la = "ls --almost-all --dereference-command-line --color=auto --format=single-column --human-readable --size --group-directories-first --sort=version";
     tree = "tree -C";
   };
-in
-{
+in {
   home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = false;

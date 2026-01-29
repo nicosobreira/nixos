@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.xserver.windowManager.awesome = {
     enable = true;
     noArgb = true;

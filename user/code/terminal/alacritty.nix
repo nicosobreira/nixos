@@ -1,6 +1,10 @@
-{ config, lib, stylix, userSettings, ... }:
-
 {
+  config,
+  lib,
+  stylix,
+  userSettings,
+  ...
+}: {
   programs.alacritty.enable = false;
   # programs.alacritty.settings = {
   #   env.TERM = "xterm-256color";
