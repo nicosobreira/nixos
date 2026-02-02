@@ -112,9 +112,6 @@
   users.defaultUserShell = pkgs.bash;
   programs.bash.enable = true;
 
-  # Brightness control
-  programs.light.enable = true;
-
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -142,7 +139,7 @@
       persistent = true;
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 4d";
     };
   };
 

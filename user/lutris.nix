@@ -12,13 +12,5 @@
         runner.fullscreen = true;
       };
     };
-
-    libretro = {
-      package = pkgs.retroarch.withCores (cores:
-        with cores; [
-          snes9x
-          mgba
-        ]);
-    };
   };
 }
