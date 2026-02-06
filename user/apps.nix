@@ -8,7 +8,7 @@
     kdePackages.kio-admin
 
     pwvucontrol
-  ];
 
-  programs.obsidian.enable = true;
+    obsidian
+  ];
 }
