@@ -10,5 +10,6 @@
     pwvucontrol
 
     obsidian
+    gnome-clocks
   ];
 }
