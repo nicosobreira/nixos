@@ -1,10 +1,6 @@
 # Thanks for this guide!
 # https://nixos.wiki/wiki/Nvidia
-{
-  config,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
@@ -15,6 +11,7 @@
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -22,6 +19,7 @@
 
   hardware.nvidia = {
     prime = {
+      offload.enable = true;
       sync.enable = true;
 
       intelBusId = "PCI:0:2:0";
@@ -51,4 +49,8 @@
     # Enable the Nvidia settings menu, accessible via `nvidia-settings`.
     nvidiaSettings = true;
   };
+
+  # services.xserver.screenSection = ''
+  #   Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+  # '';
 }
