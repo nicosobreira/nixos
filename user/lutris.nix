@@ -1,16 +1,39 @@
 {pkgs, ...}: {
-  programs.lutris.enable = true;
+  programs.lutris = {
+    enable = true;
 
-  home.packages = with pkgs; [
-    antimicrox
-  ];
+    package = pkgs.lutris.overrideAttrs (old: {
+      postInstall =
+        (old.postInstall or "")
+        + ''
+          rm -f $out/share/applications/net.lutris.Lutris.desktop
+        '';
+    });
 
-  programs.lutris.runners = {
-    pcsx2 = {
-      package = pkgs.pcsx2;
-      settings = {
-        runner.fullscreen = true;
+    runners = {
+      pcsx2 = {
+        package = pkgs.pcsx2;
+        settings = {
+          runner.fullscreen = true;
+        };
       };
     };
   };
+
+  home.packages = with pkgs; [
+    antimicrox
+
+    (pkgs.writeShellScriptBin "nvidia-lutris" ''
+      exec nvidia-offload lutris "$@"
+    '')
+
+    (pkgs.makeDesktopItem {
+      name = "lutris-nvidia";
+      desktopName = "Lutris (NVIDIA)";
+      exec = "nvidia-lutris %U";
+      icon = "lutris";
+      type = "Application";
+      categories = ["Network" "Game"];
+    })
+  ];
 }
