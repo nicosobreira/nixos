@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./../utils/clipboard.nix
+  ];
+
   services.xserver.windowManager.awesome = {
     enable = true;
     noArgb = true;

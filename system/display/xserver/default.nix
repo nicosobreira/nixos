@@ -1,13 +1,8 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./wm/awesome.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    xclip
-  ];
-
-  # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
 

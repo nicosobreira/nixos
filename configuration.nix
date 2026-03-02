@@ -11,15 +11,13 @@
     ./hardware-configuration.nix
     ./system/stylix.nix
 
-    # ./system/printing.nix
     ./system/hardware/power.nix
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/${systemSettings.gpuType}.nix
     ./system/security/firewall.nix
-    ./system/wm/x11.nix # Also set up awesome as WM
+    ./system/display/xserver
     ./system/app/flatpak.nix
     ./system/games
-    # ./system/app/syncthing.nix
   ];
 
   services.xserver = {

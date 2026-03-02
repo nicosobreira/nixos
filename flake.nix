@@ -42,10 +42,10 @@
       font = "Caskaydia Cove Nerd Font";
       fontPkg = pkgs.nerd-fonts.caskaydia-cove;
 
-      terminal = "kitty"; # Stored in: ./user/app/terminal
-      editor = "nvim"; # Stored in: ./user/app/editor
-      shell = "bash"; # Stored in: ./user/shell/sh.nix
-      browser = "brave"; # Stored in: ./user/app/browser
+      terminal = "kitty";
+      editor = "nvim";
+      shell = "bash";
+      browser = "brave";
     };
 
     lib = nixpkgs.lib;
