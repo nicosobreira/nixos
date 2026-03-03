@@ -17,4 +17,6 @@
 
   # For `light`
   programs.light.enable = true;
+
+  environment.pathsToLink = ["/share/awesome"];
 }
