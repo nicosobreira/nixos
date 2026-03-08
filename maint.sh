@@ -31,8 +31,8 @@ function get_script_path()
 function show_help()
 {
 	cat <<- EOF
-Usages: ${BASH_SOURCE[0]} [Action]
-Action:
+Usages: ${BASH_SOURCE[0]} [Actions]
+Actions:
     rebuild        Create new system iteration
     upgrade        Update and rebuild
     update         Update the flake
