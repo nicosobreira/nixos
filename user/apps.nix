@@ -14,6 +14,7 @@
 
     obsidian
     gnome-clocks
+    libqalculate
   ];
 
   xdg.mimeApps = {
