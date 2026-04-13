@@ -137,7 +137,7 @@
       persistent = true;
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 4d";
+      options = "--delete-older-than 7d";
     };
   };
 
