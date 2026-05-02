@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     musescore
     qbittorrent
+    krita
 
     kdePackages.okular
 
@@ -16,11 +17,4 @@
     gnome-clocks
     libqalculate
   ];
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = ["org.kde.dolphin.desktop"];
-    };
-  };
 }
