@@ -17,6 +17,7 @@
     ./system/security/firewall.nix
     ./system/display/xserver
     ./system/app/flatpak.nix
+    ./system/app/packet.nix
     ./system/games
   ];
 
