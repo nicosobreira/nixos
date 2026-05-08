@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     musescore
     qbittorrent
-    krita
 
     kdePackages.okular
 
@@ -16,11 +15,5 @@
     obsidian
     gnome-clocks
     libqalculate
-
-    packet
   ];
-
-  networking.firewall = {
-    allowedUDPPorts = [5353];
-  };
 }
