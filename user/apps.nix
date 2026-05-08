@@ -16,5 +16,11 @@
     obsidian
     gnome-clocks
     libqalculate
+
+    packet
   ];
+
+  networking.firewall = {
+    allowedUDPPorts = [5353];
+  };
 }
