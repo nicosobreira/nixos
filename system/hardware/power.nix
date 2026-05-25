@@ -8,7 +8,7 @@
   services.thermald.enable = true;
 
   # SSD trim
-  services.fstrim.enable = true;
+  # services.fstrim.enable = true;
 
   # services.tlp = {
   #   enable = false;
