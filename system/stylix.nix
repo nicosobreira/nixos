@@ -18,24 +18,21 @@
     polarity = "dark";
 
     fonts = {
-      serif = {
-        package = userSettings.fontPkg;
-        name = userSettings.font;
-      };
-
       sansSerif = {
-        package = userSettings.fontPkg;
-        name = userSettings.font;
+        name = "Noto Sans";
+        package = pkgs.noto-fonts;
       };
-
+      serif = {
+        name = "Noto Serif";
+        package = pkgs.noto-fonts;
+      };
       monospace = {
-        package = userSettings.fontPkg;
         name = userSettings.font;
+        package = userSettings.fontPkg;
       };
-
       emoji = {
-        package = userSettings.fontPkg;
-        name = userSettings.font;
+        name = "Noto Color Emoji";
+        package = pkgs.noto-fonts-emoji;
       };
     };
 
