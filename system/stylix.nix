@@ -19,12 +19,12 @@
 
     fonts = {
       sansSerif = {
-        name = "Noto Sans";
-        package = pkgs.noto-fonts;
+        name = "Ubuntu";
+        package = pkgs.nerd-fonts.ubuntu;
       };
       serif = {
-        name = "Noto Serif";
-        package = pkgs.noto-fonts;
+        name = "Ubuntu Serif";
+        package = pkgs.nerd-fonts.ubuntu;
       };
       monospace = {
         name = userSettings.font;
