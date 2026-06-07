@@ -39,7 +39,7 @@
       email = "nicolau.sobreira@gmail.com";
       githubUsername = "nicosobreira";
 
-      monoFont = "Terminess Nerd Font";
+      monoFont = "Terminess Nerd Font Mono";
       monoFontPkg = pkgs.nerd-fonts.terminess-ttf;
 
       terminal = "kitty";

@@ -38,9 +38,11 @@
 
     fonts.sizes = {
       applications = 10;
-      terminal = 9;
+      terminal = 12;
       desktop = 12;
       popups = 12;
     };
   };
+
+  stylix.targets.kitty.enable = false;
 }
