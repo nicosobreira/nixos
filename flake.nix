@@ -39,8 +39,8 @@
       email = "nicolau.sobreira@gmail.com";
       githubUsername = "nicosobreira";
 
-      monoFont = "Terminess Nerd Font Mono";
-      monoFontPkg = pkgs.nerd-fonts.terminess-ttf;
+      monoFont = "Caskaydia Cove Nerd Font";
+      monoFontPkg = pkgs.nerd-fonts.caskaydia-cove;
 
       terminal = "kitty";
       editor = "nvim";
