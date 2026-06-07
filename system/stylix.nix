@@ -27,8 +27,8 @@
         package = pkgs.nerd-fonts.ubuntu;
       };
       monospace = {
-        name = userSettings.font;
-        package = userSettings.fontPkg;
+        name = userSettings.monoFont;
+        package = userSettings.monoFontPkg;
       };
       emoji = {
         name = "Noto Color Emoji";
