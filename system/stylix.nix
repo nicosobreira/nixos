@@ -43,6 +43,4 @@
       popups = 12;
     };
   };
-
-  stylix.targets.kitty.enable = false;
 }
