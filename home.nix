@@ -12,7 +12,6 @@
     ./user/browser/${userSettings.browser}.nix
     ./user/apps.nix
     ./user/lutris.nix
-    ./user/yellow-filter.nix
   ];
 
   home.sessionVariables = {
