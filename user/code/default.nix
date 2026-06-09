@@ -9,6 +9,7 @@
     # Languages
     clang
     lua
+    python311
 
     # Tools
     ninja
@@ -21,8 +22,10 @@
     lua-language-server
     bash-language-server
     shellcheck
+    pyright
 
     # Formatters
     stylua
+    black
   ];
 }
