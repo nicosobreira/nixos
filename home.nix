@@ -11,7 +11,6 @@
     ./user/nil.nix
     ./user/terminal/kitty.nix
     ./user/direnv.nix
-    ./user/fonts.nix
     ./user/desktop/xdg.nix
     ./user/browser/${userSettings.browser}.nix
   ];
