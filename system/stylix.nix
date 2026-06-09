@@ -12,8 +12,6 @@
     };
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/windows-95.yaml";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    # base24Scheme = "${pkgs.base24-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./../wallpapers/nausicaa/1.png;
     polarity = "dark";
 
