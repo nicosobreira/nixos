@@ -18,7 +18,6 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     stylix,
     ...
@@ -49,7 +48,6 @@
     lib = nixpkgs.lib;
 
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
   in {
     nixosConfigurations.${systemSettings.hostname} = lib.nixosSystem {
       system = systemSettings.system;
@@ -66,7 +64,6 @@
             inherit systemSettings;
             inherit userSettings;
 
-            inherit pkgs-unstable;
             inherit inputs;
           };
         }
@@ -76,8 +73,6 @@
         inherit systemSettings;
         inherit userSettings;
         inherit inputs;
-
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
       };
     };
 
