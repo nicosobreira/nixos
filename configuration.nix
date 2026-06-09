@@ -17,6 +17,7 @@
     ./system/hardware/power.nix
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/nvidia.nix
+    ./system/hardware/cpu/intel.nix
     ./system/security/firewall.nix
     ./system/display/xserver
     ./system/app/flatpak.nix
@@ -24,6 +25,7 @@
   ];
 
   hardware.nvidiaEnable = true;
+  hardware.intelEnable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
