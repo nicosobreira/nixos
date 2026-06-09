@@ -13,7 +13,7 @@ error()
 
     local prefix="ERROR: "
 
-	printf "%s%s\n" "$prefix" "$msg" >&2
+    printf "%s%s\n" "$prefix" "$msg" >&2
 
     exit "$code"
 }
@@ -30,7 +30,7 @@ function get_script_path()
 
 function show_help()
 {
-	cat <<- EOF
+    cat <<- EOF
 Usages: ${BASH_SOURCE[0]} [Actions]
 Actions:
     rebuild        Create new system iteration
