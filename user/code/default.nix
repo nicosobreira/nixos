@@ -1,15 +1,8 @@
-{
-  pkgs,
-  userSettings,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./editor/nvim.nix
     ./editor/vim.nix
-    ./terminal/${userSettings.terminal}.nix
-    ./shell/tools.nix
     ./git.nix
-    ./nil.nix
   ];
 
   home.packages = with pkgs; [
@@ -18,7 +11,7 @@
     lua
 
     # Tools
-    gnumake
+    ninja
     cmake
     gdb
 
