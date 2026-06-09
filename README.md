@@ -32,6 +32,6 @@ Verifique se no `configuration.nix` as configurações `hardware.nvidiaEnable` e
 sudo nixos-rebuild switch --flake ~/nixos
 ```
 
-## Special Thanks!
+## Agradecimentos
 
-Thanks to [LibrePhoenix](https://github.com/librephoenix) for his [tutorial series](https://youtube.com/playlist?list=PL_WcXIXdDWWpuypAEKzZF2b5PijTluxRG&si=fiFiKyW_NWTqL4Re) and also his [repo](https://github.com/librephoenix/nixos-config)
+Obrigado [LibrePhoenix](https://github.com/librephoenix) por sua  [série de tutoriais](https://youtube.com/playlist?list=PL_WcXIXdDWWpuypAEKzZF2b5PijTluxRG&si=fiFiKyW_NWTqL4Re) e támbem por sua [repo](https://github.com/librephoenix/nixos-config)
