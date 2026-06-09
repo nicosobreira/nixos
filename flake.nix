@@ -1,9 +1,8 @@
 {
-  description = "My first flake";
+  description = "NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -17,6 +16,7 @@
   };
 
   outputs = inputs @ {
+    self,
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
@@ -30,8 +30,6 @@
       timeZone = "America/Sao_Paulo";
       language = "en_US.UTF-8";
       locale = "pt_BR.UTF-8";
-
-      gpuType = "nvidia";
     };
 
     userSettings = {
@@ -77,9 +75,9 @@
       specialArgs = {
         inherit systemSettings;
         inherit userSettings;
-
-        inherit pkgs-unstable;
         inherit inputs;
+
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
       };
     };
 

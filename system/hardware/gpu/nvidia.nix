@@ -1,61 +1,68 @@
 # Thanks for this guide!
 # https://nixos.wiki/wiki/Nvidia
-{lib, ...}: {
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-      "nvidia-settings"
-      "nvidia-persistenced"
-    ];
+{
+  lib,
+  config,
+  ...
+}: {
+  options.hardware.nvidiaEnable = lib.mkEnableOption "NVIDIA GPU support";
 
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  config = lib.mkIf config.hardware.nvidiaEnable {
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "nvidia-x11"
+        "nvidia-settings"
+        "nvidia-persistenced"
+      ];
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
-
-  hardware.nvidia = {
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
+    # Enable OpenGL
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
     };
 
-    # Modesetting is required.
-    modesetting.enable = true;
+    # Load nvidia driver for Xorg and Wayland
+    services.xserver.videoDrivers = [
+      "nvidia"
+    ];
 
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
-    # of just the bare essentials.
-    powerManagement.enable = true;
+    hardware.nvidia = {
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        # Verifique com: nix-shell -p pciutils --run "lspci | grep -E 'VGA|3D'"
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
 
-    # Fine-grained power management. Turns off GPU when not in use. Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+      # Modesetting is required.
+      modesetting.enable = true;
 
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of
-    # supported GPUs is at:
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-    # Only available from driver 515.43.04+
-    open = false;
+      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+      # Enable this if you have graphical corruption issues or application crashes after waking
+      # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
+      # of just the bare essentials.
+      powerManagement.enable = false;
 
-    # Enable the Nvidia settings menu, accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+      # Fine-grained power management. Turns off GPU when not in use. Experimental and only works on modern Nvidia GPUs (Turing or newer).
+      powerManagement.finegrained = false;
+
+      # Use the NVidia open source kernel module (not to be confused with the
+      # independent third-party "nouveau" open source driver).
+      # Support is limited to the Turing and later architectures. Full list of
+      # supported GPUs is at:
+      # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
+      # Only available from driver 515.43.04+
+      open = false;
+
+      # Enable the Nvidia settings menu, accessible via `nvidia-settings`.
+      nvidiaSettings = true;
+    };
+
+    # services.xserver.screenSection = ''
+    #   Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+    # '';
   };
-
-  # services.xserver.screenSection = ''
-  #   Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-  # '';
 }

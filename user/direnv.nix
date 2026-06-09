@@ -1,7 +1,7 @@
 {...}: {
+  # Shell integrations are done in config files
   programs.direnv = {
     enable = true;
-    enableBashIntegration = true; # see note on other shells below
     nix-direnv.enable = true;
   };
 }
