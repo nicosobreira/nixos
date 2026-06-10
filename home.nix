@@ -9,9 +9,9 @@
     ./user/apps
     ./user/shell
     ./user/nil.nix
-    ./user/terminal/kitty.nix
     ./user/direnv.nix
     ./user/desktop/xdg.nix
+    ./user/terminal/${userSettings.terminal}.nix
     ./user/browser/${userSettings.browser}.nix
   ];
 
