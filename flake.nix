@@ -13,6 +13,8 @@
       url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 
   outputs = inputs @ {
@@ -20,6 +22,7 @@
     nixpkgs,
     home-manager,
     stylix,
+    zen-browser,
     ...
   }: let
     systemSettings = {
@@ -42,7 +45,7 @@
       terminal = "kitty";
       editor = "nvim";
       shell = "bash";
-      browser = "brave";
+      browser = "zen";
     };
 
     lib = nixpkgs.lib;
@@ -72,6 +75,7 @@
       specialArgs = {
         inherit systemSettings;
         inherit userSettings;
+
         inherit inputs;
       };
     };
