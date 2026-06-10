@@ -5,10 +5,10 @@
   services.auto-cpufreq.settings = {
     battery = {
       governor = "powersave";
-      turbo = "auto";
+      turbo = "never";
     };
     charger = {
-      governor = "performance";
+      governor = "schedutil";
       turbo = "auto";
     };
   };
