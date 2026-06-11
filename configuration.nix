@@ -1,4 +1,4 @@
-{...}: {
+{userSettings, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./system/stylix.nix
@@ -26,6 +26,14 @@
 
   hardware.nvidiaEnable = true;
   hardware.intelEnable = true;
+
+  environment.sessionVariables = {
+    EDITOR = userSettings.editor;
+    TERMINAL = userSettings.terminal;
+    BROWSER = userSettings.browser;
+
+    _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
