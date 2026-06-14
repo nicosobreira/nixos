@@ -21,6 +21,14 @@
   home.packages = with pkgs; [
     antimicrox
 
-    (withNvidiaOffload dolphin-emu-primehack)
+    # Na hora da instalação, o $HOME é sobre escrito, por isso tem que fazer isso
+    # (withNvidiaOffload (pkgs.dolphin-emu-primehack.overrideAttrs (old: {
+    #   postInstall =
+    #     (old.postInstall or "")
+    #     + ''
+    #       wrapProgram $out/bin/primehack \
+    #         --run 'export HOME=$(getent passwd $USER | cut -d: -f6)'
+    #     '';
+    # })))
   ];
 }
