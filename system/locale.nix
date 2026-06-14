@@ -23,5 +23,11 @@
       variant = "abnt2";
     };
   };
+
+  services.libinput = {
+    enable = true;
+    touchpad.disableWhileTyping = true;
+  };
+
   console.useXkbConfig = true;
 }

@@ -11,11 +11,6 @@
     };
   };
 
-  services.libinput = {
-    enable = true;
-    touchpad.disableWhileTyping = true;
-  };
-
   # Set dark theme for GTK and QT applications globally
   environment.variables = {
     GTK_THEME = "Adwaita:dark";
