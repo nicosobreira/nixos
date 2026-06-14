@@ -10,10 +10,10 @@
 
   environment.systemPackages = with pkgs; [
     flameshot
-  ];
 
-  # For `wpctl`
-  services.pipewire.enable = true;
+    wireplumber # `wpctl`
+    pwvucontrol # Audio mixer
+  ];
 
   # For `light`
   programs.light.enable = true;
