@@ -21,9 +21,9 @@
       enable32Bit = true;
     };
 
-    # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = [
-      "nvidia"
+      "modesetting" # This enables the Intel iGPU
+      "nvidia" # And this enables the nvidia GPU
     ];
 
     hardware.nvidia = {
@@ -41,7 +41,7 @@
       # Modesetting is required.
       modesetting.enable = true;
 
-      powerManagement.enable = true;
+      powerManagement.enable = false;
 
       # MX110 (Pascal) não suporta
       powerManagement.finegrained = false;
