@@ -7,8 +7,6 @@
   home.packages = with pkgs; [
     qbittorrent
 
-    pwvucontrol
-
     obsidian
     gnome-clocks
     libqalculate
