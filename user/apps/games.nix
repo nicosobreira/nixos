@@ -20,6 +20,7 @@
 
   home.packages = with pkgs; [
     antimicrox
-    dolphin-emu-primehack
+
+    (withNvidiaOffload dolphin-emu-primehack)
   ];
 }
