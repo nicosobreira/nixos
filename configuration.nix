@@ -29,8 +29,6 @@
     ./system/apps
     ./system/apps/flatpak.nix
     ./system/apps/games
-
-    ./system/games
   ];
 
   hardware.nvidiaEnable = true;
