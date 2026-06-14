@@ -1,6 +1,9 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
+
+    ./system/utils/nvidia-offload.nix
+
     ./system/stylix.nix
     ./system/user.nix
     ./system/boot.nix
@@ -18,9 +21,15 @@
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/nvidia.nix
     ./system/hardware/cpu/intel.nix
+
     ./system/security/firewall.nix
+
     ./system/display/xserver
-    ./system/app/flatpak.nix
+
+    ./system/apps
+    ./system/apps/flatpak.nix
+    ./system/apps/games
+
     ./system/games
   ];
 
