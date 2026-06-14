@@ -3,11 +3,11 @@
   osConfig,
   ...
 }: let
-  isNvidiaOffloadEnabled = osConfig.hardware.nvidia.prime.offload.enable or false;
+  nvidiaOffloadEnabled = osConfig.hardware.nvidia.prime.offload.enable or false;
 
   # If nvidia offload is enable then use it on `pkg` else do nothing
   withNvidiaOffload = pkg:
-    if isNvidiaOffloadEnabled
+    if nvidiaOffloadEnabled
     then
       pkg.overrideAttrs (old: {
         nativeBuildInputs = (old.nativeBuildInputs or []) ++ [pkgs.makeWrapper];
