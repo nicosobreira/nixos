@@ -13,6 +13,7 @@
     ./user/desktop/xdg.nix
     ./user/terminal/${userSettings.terminal}.nix
     ./user/browser/${userSettings.browser}.nix
+    ./user/utils/nvidia-offload.nix
   ];
 
   home.sessionVariables = {

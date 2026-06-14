@@ -1,14 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  withNvidiaOffload,
+  ...
+}: {
   programs.lutris = {
     enable = true;
 
-    package = pkgs.lutris.overrideAttrs (old: {
-      postInstall =
-        (old.postInstall or "")
-        + ''
-          rm -f $out/share/applications/net.lutris.Lutris.desktop
-        '';
-    });
+    package = withNvidiaOffload pkgs.lutris;
 
     runners = {
       pcsx2 = {
@@ -22,18 +20,6 @@
 
   home.packages = with pkgs; [
     antimicrox
-
-    (pkgs.writeShellScriptBin "nvidia-lutris" ''
-      exec nvidia-offload lutris "$@"
-    '')
-
-    (pkgs.makeDesktopItem {
-      name = "lutris-nvidia";
-      desktopName = "Lutris (NVIDIA)";
-      exec = "nvidia-lutris %U";
-      icon = "lutris";
-      type = "Application";
-      categories = ["Network" "Game"];
-    })
+    dolphin-emu-primehack
   ];
 }
