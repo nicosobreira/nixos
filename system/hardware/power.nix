@@ -1,11 +1,11 @@
 {...}: {
-  powerManagement.enable = false;
+  powerManagement.enable = true;
 
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     battery = {
       governor = "powersave";
-      turbo = "never";
+      turbo = "auto";
       energy_performance_preference = "power";
     };
     charger = {
