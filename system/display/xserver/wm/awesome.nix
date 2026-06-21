@@ -13,6 +13,8 @@
 
     wireplumber # `wpctl`
     pwvucontrol # Audio mixer
+
+    nerd-fonts.caskaydia-cove
   ];
 
   # For `light`
