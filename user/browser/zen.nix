@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  lib,
   ...
 }: let
   extension = shortId: guid: {
@@ -19,6 +18,7 @@
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     (extension "competitive-companion" "{74e326aa-c645-4495-9287-b6febc5565a7}")
     (extension "youtube-recommended-videos" "myallychou@gmail.com")
+    (extension "darkreader" "addon@darkreader.org")
   ];
 in {
   home.packages = [
