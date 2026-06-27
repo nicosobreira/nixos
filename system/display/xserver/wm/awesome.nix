@@ -13,12 +13,10 @@
 
     wireplumber # `wpctl`
     pwvucontrol # Audio mixer
+    brightnessctl
 
     nerd-fonts.caskaydia-cove
   ];
-
-  # For `light`
-  programs.light.enable = true;
 
   environment.pathsToLink = ["/share/awesome"];
 }
