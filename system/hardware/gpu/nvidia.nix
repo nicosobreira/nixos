@@ -50,6 +50,9 @@
 
       # Enable the Nvidia settings menu, accessible via `nvidia-settings`.
       nvidiaSettings = true;
+
+      # The version 580 is the correct one for MX110
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     };
   };
 }
