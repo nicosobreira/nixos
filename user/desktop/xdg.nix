@@ -3,6 +3,8 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
+    setSessionVariables = false;
+
     music = null;
     templates = null;
     desktop = null;
