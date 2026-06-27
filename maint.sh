@@ -36,7 +36,7 @@ Actions:
     rebuild        Create new system iteration
     upgrade        Update and rebuild
     update         Update the flake
-    cleanup        Clean the system
+    clean          Clean the system
 
     help           Show this help
 EOF
