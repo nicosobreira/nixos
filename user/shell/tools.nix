@@ -10,5 +10,7 @@
     stow
 
     tmux
+
+    htop
   ];
 }
