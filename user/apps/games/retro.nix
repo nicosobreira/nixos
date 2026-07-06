@@ -19,7 +19,9 @@ in {
   home.packages = with pkgs; [
     mame-tools
 
+    (withNvidiaOffload pcsx2)
     (withNvidiaOffload parallel-launcher)
+
     (withNvidiaOffload myRetroarch)
   ];
 }
