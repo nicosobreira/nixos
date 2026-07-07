@@ -11,6 +11,7 @@
     ./user/nil.nix
     ./user/direnv.nix
     ./user/desktop/xdg.nix
+    ./user/desktop/screen_filter.nix
     ./user/terminal/${userSettings.terminal}.nix
     ./user/browser/${userSettings.browser}.nix
     ./user/utils/nvidia-offload.nix
