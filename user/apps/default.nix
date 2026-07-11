@@ -10,5 +10,7 @@
     obsidian
     gnome-clocks
     libqalculate
+
+    loupe # Image viewer
   ];
 }
