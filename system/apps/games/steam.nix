@@ -23,4 +23,9 @@
   };
 
   programs.steam.protontricks.enable = true;
+
+  # Proton needs more memory
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 2147483642;
+  };
 }
