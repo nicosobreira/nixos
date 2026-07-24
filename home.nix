@@ -8,8 +8,9 @@
     ./user/code
     ./user/apps
     ./user/shell
-    ./editor/nvim.nix
-    ./editor/vim.nix
+    ./user/editors/nvim.nix
+    ./user/editors/vim.nix
+    ./user/editors/helix.nix
     ./user/nil.nix
     ./user/direnv.nix
     ./user/desktop/xdg.nix
