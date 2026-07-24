@@ -1,7 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./editor/nvim.nix
-    ./editor/vim.nix
     ./git.nix
   ];
 
