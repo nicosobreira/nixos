@@ -17,6 +17,7 @@
     ./user/desktop/screen_filter.nix
     ./user/terminal/${userSettings.terminal}.nix
     ./user/browser/${userSettings.browser}.nix
+    ./user/browser/brave.nix
     ./user/utils/nvidia-offload.nix
   ];
 
