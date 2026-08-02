@@ -21,6 +21,7 @@
     xkb = {
       layout = "br";
       variant = "abnt2";
+      options = "caps:escape";
     };
   };
 
