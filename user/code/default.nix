@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./git.nix
+    ./web.nix
   ];
 
   home.packages = with pkgs; [
