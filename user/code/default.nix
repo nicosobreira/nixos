@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./languages
     ./git.nix
     ./web.nix
   ];
