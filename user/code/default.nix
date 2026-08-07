@@ -2,7 +2,6 @@
   imports = [
     ./languages
     ./git.nix
-    ./web.nix
   ];
 
   home.packages = with pkgs; [
