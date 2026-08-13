@@ -21,6 +21,7 @@
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/nvidia.nix
     ./system/hardware/cpu/intel.nix
+    ./system/hardware/zram.nix
 
     ./system/security/firewall.nix
 
