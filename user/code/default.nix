@@ -22,6 +22,7 @@
     bash-language-server
     shellcheck
     pyright
+    marksman
 
     # Formatters
     stylua
