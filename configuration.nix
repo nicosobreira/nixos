@@ -50,6 +50,8 @@
     ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="max_performance"
   '';
 
+  programs.nix-ld.enable = true;
+
   # Just don't change it
   system.stateVersion = "25.05"; # Did you read the comment?
 }
