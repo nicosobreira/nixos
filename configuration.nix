@@ -2,6 +2,8 @@
   imports = [
     ./hardware-configuration.nix
 
+    ./system/specialisation/zram.nix
+
     ./system/utils/nvidia-offload.nix
 
     ./system/stylix.nix
@@ -21,7 +23,6 @@
     ./system/hardware/opengl.nix
     ./system/hardware/gpu/nvidia.nix
     ./system/hardware/cpu/intel.nix
-    ./system/hardware/zram.nix
 
     ./system/security/firewall.nix
 
