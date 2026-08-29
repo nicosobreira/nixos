@@ -16,4 +16,5 @@
 
   services.udisks2.enable = true;
   programs.gnome-disks.enable = true;
+  services.gvfs.enable = true; # Needed for Nauilus File Manager
 }
